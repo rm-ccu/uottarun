@@ -1,0 +1,32 @@
+{
+  "recurring": {
+    "tuesday": {
+      "time": "6:30 PM",
+      "distance": "5–10 km",
+      "location": "Minto Sports Complex Track, University of Ottawa",
+      "paceGroups": ["5:00/km", "6:00/km", "7:00/km+"],
+      "stravaUrl": "https://www.strava.com/clubs/1287320/"
+    },
+    "saturday": {
+      "time": "8:00 AM",
+      "distance": "8–15 km",
+      "location": "Ottawa Locks (start), Rideau Canal",
+      "type": "guru",
+      "paceGroups": ["5:30/km", "6:30/km"],
+      "stravaUrl": "https://www.strava.com/clubs/1287320/"
+    }
+  },
+  "_eventTemplate": {
+    "id": "N",
+    "title": "Event Name",
+    "date": "YYYY-MM-DD",
+    "time": "HH:MM AM/PM",
+    "distance": "X km",
+    "location": "Location, City",
+    "description": "Description here.",
+    "stravaUrl": "https://www.strava.com/clubs/1287320/",
+    "paceGroups": ["open"]
+  },
+  "events": [
+  ]
+}

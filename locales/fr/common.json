@@ -1,0 +1,84 @@
+{
+  "brand_name": "uOttaCours",
+  "nav": {
+    "home": "Accueil",
+    "events": "Événements",
+    "team": "Équipe",
+    "sponsors": "Commanditaires",
+    "join": "Rejoindre"
+  },
+  "hero": {
+    "headline": "Courons Ottawa.",
+    "sub": "uOttaCours est le club de course officiel de l'Université d'Ottawa. Tous les rythmes, tous les niveaux — courez avec nous.",
+    "cta_join": "Rejoindre le club",
+    "cta_events": "Événements à venir"
+  },
+  "stats": {
+    "members": "Membres actifs",
+    "events_year": "Événements par année",
+    "years": "Années de course"
+  },
+  "events_section": {
+    "title": "Événements à venir",
+    "sub": "Courses hebdomadaires, compétitions et activités sociales pour tous les rythmes.",
+    "view_all": "Voir tous les événements",
+    "on_strava": "Voir sur Strava"
+  },
+  "events_page": {
+    "title": "Événements",
+    "sub": "Courses hebdomadaires, compétitions et activités sociales. Tous les rythmes bienvenus.",
+    "weekly_title": "Courses hebdomadaires",
+    "special_title": "Événements spéciaux",
+    "no_special": "Aucun événement spécial à venir. Revenez bientôt !"
+  },
+  "weekly_runs": {
+    "tuesday": "Course du mardi",
+    "saturday": "Course du samedi",
+    "coffee": "Course café",
+    "guru": "Course GURU"
+  },
+  "event_card": {
+    "distance": "Distance",
+    "location": "Lieu",
+    "pace_groups": "Groupes de rythme"
+  },
+  "exec_roles": {
+    "Co-President": "Co-Président",
+    "VP Communications": "VP Communications",
+    "VP Admin": "VP Admin",
+    "VP Events": "VP Événements"
+  },
+  "team_page": {
+    "title": "Notre équipe",
+    "sub": "Notre équipe exécutive dévouée et nos bénévoles maintiennent le club en mouvement.",
+    "exec_title": "Équipe exécutive",
+    "pacers_title": "Lièvres",
+    "alumni_title": "Anciens membres",
+    "pacers_empty": "Nous cherchons des lièvres pour rejoindre l'équipe.",
+    "pacers_apply": "Postuler ici"
+  },
+  "sponsors_page": {
+    "title": "Nos commanditaires",
+    "sub": "uOttaCours est rendu possible grâce au généreux soutien de nos commanditaires.",
+    "gold": "Or",
+    "silver": "Argent",
+    "bronze": "Bronze",
+    "cta_title": "Devenez commanditaire",
+    "cta_body": "Aidez-nous à développer la communauté de course d'Ottawa. Nous serions ravis de discuter des possibilités de partenariat avec vous.",
+    "cta_button": "Contactez-nous"
+  },
+  "join_page": {
+    "title": "Rejoindre uOttaCours",
+    "sub": "L'adhésion est gratuite et ouverte à tous les étudiants de l'Université d'Ottawa. Lacez vos chaussures et courez avec nous.",
+    "form_title": "Inscrivez-vous maintenant",
+    "form_sub": "Remplissez notre formulaire d'adhésion pour commencer.",
+    "links_title": "Restez connecté",
+    "email_label": "Des questions ? Écrivez-nous"
+  },
+  "footer": {
+    "tagline": "Courir ensemble depuis 2019.",
+    "links": "Liens",
+    "connect": "Connecter",
+    "rights": "Tous droits réservés."
+  }
+}

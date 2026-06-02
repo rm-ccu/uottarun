@@ -1,0 +1,84 @@
+{
+  "brand_name": "uOttaRun",
+  "nav": {
+    "home": "Home",
+    "events": "Events",
+    "team": "Team",
+    "sponsors": "Sponsors",
+    "join": "Join"
+  },
+  "hero": {
+    "headline": "Run Ottawa.",
+    "sub": "uOttaRun is the University of Ottawa's official running club. All paces, all levels — run with us.",
+    "cta_join": "Join the Club",
+    "cta_events": "Upcoming Events"
+  },
+  "stats": {
+    "members": "Active Members",
+    "events_year": "Events Per Year",
+    "years": "Years Running"
+  },
+  "events_section": {
+    "title": "Upcoming Events",
+    "sub": "Weekly runs, races, and socials for all paces.",
+    "view_all": "View All Events",
+    "on_strava": "View on Strava"
+  },
+  "events_page": {
+    "title": "Events",
+    "sub": "Weekly runs, races, and social events. All paces welcome.",
+    "weekly_title": "Weekly Runs",
+    "special_title": "Special Events",
+    "no_special": "No upcoming special events. Check back soon!"
+  },
+  "weekly_runs": {
+    "tuesday": "Tuesday Run",
+    "saturday": "Saturday Run",
+    "coffee": "Coffee Run",
+    "guru": "GURU Run"
+  },
+  "event_card": {
+    "distance": "Distance",
+    "location": "Location",
+    "pace_groups": "Pace Groups"
+  },
+  "exec_roles": {
+    "Co-President": "Co-President",
+    "VP Communications": "VP Communications",
+    "VP Admin": "VP Admin",
+    "VP Events": "VP Events"
+  },
+  "team_page": {
+    "title": "Meet the Team",
+    "sub": "Our dedicated exec team and volunteer pacers keep the club running.",
+    "exec_title": "Executive Team",
+    "pacers_title": "Pacers",
+    "alumni_title": "Alumni",
+    "pacers_empty": "We're looking for pacers to join the team.",
+    "pacers_apply": "Apply Here"
+  },
+  "sponsors_page": {
+    "title": "Our Sponsors",
+    "sub": "uOttaRun is made possible by the generous support of our sponsors.",
+    "gold": "Gold",
+    "silver": "Silver",
+    "bronze": "Bronze",
+    "cta_title": "Become a Sponsor",
+    "cta_body": "Help us grow Ottawa's running community. We'd love to discuss partnership opportunities with you.",
+    "cta_button": "Contact Us"
+  },
+  "join_page": {
+    "title": "Join uOttaRun",
+    "sub": "Membership is free and open to all University of Ottawa students. Lace up and run with us.",
+    "form_title": "Register Now",
+    "form_sub": "Fill out our membership form to get started.",
+    "links_title": "Stay Connected",
+    "email_label": "Questions? Email us"
+  },
+  "footer": {
+    "tagline": "Running together since 2024.",
+    "links": "Links",
+    "connect": "Connect",
+    "rights": "All rights reserved."
+  }
+}

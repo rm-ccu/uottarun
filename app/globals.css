@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette */
+  --color-brand: #215D7A;
+  --color-brand-dark: #184A64;
+  --color-brand-light: #DFF0F8;
+
+  --color-secondary: #9ABD74;
+  --color-secondary-dark: #7FA55C;
+  --color-secondary-light: #EEF7E5;
+
+  --color-accent: #FFCE00;
+  --color-accent-dark: #E6B800;
+
+  --color-background: #FFFFF4;
+  --color-surface: #F5F5E8;
+
+  /* Fonts — variables injected by next/font/google in layout.tsx */
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFF4;
+  color: #111111;
+}

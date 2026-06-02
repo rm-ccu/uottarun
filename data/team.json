@@ -1,0 +1,48 @@
+{
+  "exec": [
+    {
+      "id": "1",
+      "name": "Sophie LaFlamme",
+      "role": "Co-President",
+      "bio": "Bio to be filled.",
+      "bioFr": null,
+      "image": null
+    },
+    {
+      "id": "2",
+      "name": "Rory McCulloch",
+      "role": "Co-President",
+      "bio": "Bio to be filled.",
+      "bioFr": null,
+      "image": null
+    },
+    {
+      "id": "3",
+      "name": "Emily Alexander",
+      "role": "VP Communications",
+      "bio": "Bio to be filled.",
+      "bioFr": null,
+      "image": null
+    },
+    {
+      "id": "4",
+      "name": "Renée Treleaven",
+      "role": "VP Admin",
+      "bio": "Bio to be filled.",
+      "bioFr": null,
+      "image": null
+    }
+  ],
+  "alumni": [
+    { "id": "al1", "name": "Aya Al-Ali",        "roles": ["Co-Founder"] },
+    { "id": "al2", "name": "Alyssa Primdahl",   "roles": ["Co-Founder"] },
+    { "id": "al3", "name": "Ève Tremblay",      "roles": ["VP Communications '24–'25", "President '25–'26"] },
+    { "id": "al4", "name": "Avery Bird",        "roles": ["VP Admin '24–'25"] },
+    { "id": "al5", "name": "Talia Ko",          "roles": ["VP Events '24–'25"] },
+    { "id": "al6", "name": "Rhys Clee",         "roles": ["VP Events '25–'26"] }
+  ],
+  "pacerFormUrl": "https://forms.gle/oMmof5bjcnf8kqj77",
+  "_pacerTemplate": { "id": "pN", "name": "First L.", "pace": "X:XX/km", "image": null },
+  "pacers": [
+  ]
+}

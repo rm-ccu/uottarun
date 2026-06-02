@@ -1,0 +1,32 @@
+{
+  "tiers": [
+    {
+      "tier": "gold",
+      "sponsors": [
+        {
+          "id": "s1",
+          "name": "Running Room",
+          "description": "Canada's leading running specialty retailer.",
+          "logo": null,
+          "url": "https://www.runningroom.com"
+        }
+      ]
+    },
+    {
+      "tier": "silver",
+      "sponsors": [
+        {
+          "id": "s2",
+          "name": "uOttawa Athletics",
+          "description": "Providing facilities and support for varsity and club sport.",
+          "logo": null,
+          "url": "https://athletics.uottawa.ca"
+        }
+      ]
+    },
+    {
+      "tier": "bronze",
+      "sponsors": []
+    }
+  ]
+}
