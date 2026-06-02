@@ -88,11 +88,13 @@ export default function TeamPage() {
         <p className="text-sm text-gray-400 mb-6">Former executives who helped build the club.</p>
         <div className="divide-y divide-gray-100">
           {team.alumni.map((member) => (
-            <div key={member.id} className="flex items-baseline justify-between gap-6 py-3">
-              <span className="font-medium text-gray-800 text-sm">{member.name}</span>
-              <span className="text-sm text-gray-400 text-right shrink-0">
-                {member.roles.join(' · ')}
-              </span>
+            <div key={member.id} className="flex items-start justify-between gap-4 py-3">
+              <span className="font-medium text-gray-800 text-sm shrink-0">{member.name}</span>
+              <div className="text-sm text-gray-400 text-right">
+                {member.roles.map((role, i) => (
+                  <span key={i} className="block">{role}</span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
