@@ -23,7 +23,7 @@ export function HeroSection() {
         >
           <div className="flex justify-center mb-6">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt={t('brand_name')}
               width={140}
               height={140}
