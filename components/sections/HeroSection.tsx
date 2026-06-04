@@ -9,13 +9,19 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative flex items-center justify-center min-h-[88vh] bg-white overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-125 h-125 bg-brand/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -left-40 w-100 h-100 bg-brand/5 rounded-full blur-3xl" />
-      </div>
+    <section className="relative flex items-center justify-center min-h-[88vh] overflow-hidden">
+      {/* Background photo */}
+      <Image
+        src="/club-run.jpg"
+        alt=""
+        fill
+        className="object-cover object-center"
+        priority
+      />
+      {/* White overlay so dark text stays legible */}
+      <div className="absolute inset-0 bg-white/60" />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +43,7 @@ export function HeroSection() {
           <h1 className="font-heading font-bold text-7xl sm:text-8xl lg:text-9xl text-gray-950 tracking-tight leading-none mb-6">
             {t('hero.headline')}
           </h1>
-          <p className="max-w-lg mx-auto text-lg sm:text-xl text-gray-500 mb-10 leading-relaxed">
+          <p className="max-w-lg mx-auto text-lg sm:text-xl text-gray-600 mb-10 leading-relaxed">
             {t('hero.sub')}
           </p>
         </motion.div>
