@@ -35,6 +35,16 @@ html {
   display: none;
 }
 
+@keyframes card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-card-float {
+  animation: card-float 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+
 body {
   background-color: #FFFFF4;
   color: #111111;

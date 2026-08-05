@@ -6,7 +6,7 @@ import { ExecCard, type ExecMember } from './TeamCard';
 export function ExecCarousel({ items }: { items: ExecMember[] }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const setWidthRef = useRef(0);
-  const resettingRef = useRef(false);
+  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const measureSetWidth = useCallback(() => {
     const el = scrollerRef.current;
@@ -43,19 +43,28 @@ export function ExecCarousel({ items }: { items: ExecMember[] }) {
     const el = scrollerRef.current;
     if (!el || items.length === 0) return;
 
-    const handleScroll = () => {
-      if (resettingRef.current) return;
+    // Only re-center once scrolling has *fully* stopped — resetting
+    // scrollLeft mid-gesture (including during trackpad momentum) fights the
+    // browser's native scroll/snap physics and is what caused the flicker.
+    // The native `scrollend` event is the reliable signal for that; a longer
+    // debounce is the fallback for browsers that don't support it yet.
+    const supportsScrollEnd = 'onscrollend' in window;
+
+    const reconcile = () => {
       const setWidth = setWidthRef.current;
       if (setWidth <= 0) return;
       if (el.scrollLeft < setWidth * 0.5) {
-        resettingRef.current = true;
         jumpTo(el.scrollLeft + setWidth);
-        resettingRef.current = false;
       } else if (el.scrollLeft > setWidth * 1.5) {
-        resettingRef.current = true;
         jumpTo(el.scrollLeft - setWidth);
-        resettingRef.current = false;
       }
+    };
+
+    const handleScrollEnd = () => reconcile();
+
+    const handleScrollDebounced = () => {
+      if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+      settleTimerRef.current = setTimeout(reconcile, 400);
     };
 
     const handleResize = () => {
@@ -64,10 +73,16 @@ export function ExecCarousel({ items }: { items: ExecMember[] }) {
       jumpTo(setWidth);
     };
 
-    el.addEventListener('scroll', handleScroll, { passive: true });
+    if (supportsScrollEnd) {
+      el.addEventListener('scrollend', handleScrollEnd, { passive: true });
+    } else {
+      el.addEventListener('scroll', handleScrollDebounced, { passive: true });
+    }
     window.addEventListener('resize', handleResize);
     return () => {
-      el.removeEventListener('scroll', handleScroll);
+      if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+      el.removeEventListener('scrollend', handleScrollEnd);
+      el.removeEventListener('scroll', handleScrollDebounced);
       window.removeEventListener('resize', handleResize);
     };
   }, [items, measureSetWidth, jumpTo]);
@@ -88,11 +103,16 @@ export function ExecCarousel({ items }: { items: ExecMember[] }) {
     <div className="relative">
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-4 px-4 py-1 sm:mx-0 sm:px-0"
+        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-4 px-4 py-4 sm:mx-0 sm:px-0"
       >
         {loop.map((member, i) => (
           <div key={`${member.id}-${i}`} data-carousel-card className="shrink-0 w-64 sm:w-72 snap-start">
-            <ExecCard member={member} />
+            <div
+              className="animate-card-float"
+              style={{ animationDelay: `${(i % items.length) * 0.25}s` }}
+            >
+              <ExecCard member={member} />
+            </div>
           </div>
         ))}
       </div>
