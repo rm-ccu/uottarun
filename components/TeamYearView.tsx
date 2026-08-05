@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../lib/useTranslation';
-import { ExecCard, PacerCard, type ExecMember, type PacerMember } from './TeamCard';
+import { PacerCard, type ExecMember, type PacerMember } from './TeamCard';
 import { Carousel } from './Carousel';
+import { ExecCarousel } from './ExecCarousel';
 
 export interface TeamYear {
   id: string;
@@ -60,19 +61,7 @@ export function TeamYearView({
           {t('team_page.exec_title')}
         </h2>
         <span className="block w-10 h-1 bg-accent rounded-full mb-8" />
-        <Carousel
-          items={year.exec}
-          cardClassName="w-64 sm:w-72"
-          renderItem={(member, i) => (
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <ExecCard member={member} />
-            </motion.div>
-          )}
-        />
+        <ExecCarousel items={year.exec} />
       </section>
 
       <section>
