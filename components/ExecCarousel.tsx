@@ -88,10 +88,10 @@ export function ExecCarousel({ items }: { items: ExecMember[] }) {
     <div className="relative">
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-proximity scrollbar-hide -mx-4 px-4 py-4 sm:mx-0 sm:px-0"
+        className="flex gap-6 overflow-x-auto scrollbar-hide -mx-4 px-4 py-4 sm:mx-0 sm:px-0"
       >
         {loop.map((member, i) => (
-          <div key={`${member.id}-${i}`} data-carousel-card className="shrink-0 w-64 sm:w-72 snap-start">
+          <div key={`${member.id}-${i}`} data-carousel-card className="shrink-0 w-64 sm:w-72">
             <div
               className="animate-card-float"
               style={{ animationDelay: `${(i % items.length) * 0.25}s` }}
