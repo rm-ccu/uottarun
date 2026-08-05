@@ -12,7 +12,7 @@ const SOCIAL_LINKS = [
 const NAV_LINKS = [
   { href: '/events', key: 'nav.events' },
   { href: '/team', key: 'nav.team' },
-  { href: '/sponsors', key: 'nav.sponsors' },
+  { href: '/collabs', key: 'nav.collabs' },
   { href: '/join', key: 'nav.join' },
 ] as const;
 

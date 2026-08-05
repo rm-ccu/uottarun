@@ -19,6 +19,7 @@
   /* Fonts — variables injected by next/font/google in layout.tsx */
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
+  --font-display: var(--font-display);
 }
 
 html {

@@ -27,7 +27,7 @@ export function ExecCard({ member }: { member: ExecMember }) {
   const displayBio = lang === 'fr' && member.bioFr ? member.bioFr : member.bio;
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-brand-light hover:shadow-lg transition-shadow">
       <div className="aspect-square relative bg-brand-light">
         {member.image ? (
           <Image src={member.image} alt={member.name} fill className="object-cover" />
@@ -50,7 +50,7 @@ export function ExecCard({ member }: { member: ExecMember }) {
 
 export function PacerCard({ member }: { member: PacerMember }) {
   return (
-    <div className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm flex items-center gap-3">
+    <div className="bg-white border border-brand-light rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow flex items-center gap-3">
       <div className="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center shrink-0 overflow-hidden relative">
         {member.image ? (
           <Image src={member.image} alt={member.name} fill className="object-cover" />

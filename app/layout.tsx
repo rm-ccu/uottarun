@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Barlow_Condensed, DM_Sans } from 'next/font/google';
+import { Barlow_Condensed, DM_Sans, Playfair_Display } from 'next/font/google';
 import { Providers } from './providers';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
@@ -16,6 +16,13 @@ const dmSans = DM_Sans({
   variable: '--font-sans',
 });
 
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['500', '600', '700'],
+  style: ['normal', 'italic'],
+});
+
 export const metadata: Metadata = {
   title: 'uOttaRun — University of Ottawa Running Club',
   description:
@@ -27,7 +34,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${barlowCondensed.variable} ${dmSans.variable} ${playfairDisplay.variable} scroll-smooth`}
+    >
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-gray-900">
         <Providers>
           <Navbar />

@@ -18,8 +18,8 @@ export function HeroSection() {
         className="object-cover object-center"
         priority
       />
-      {/* White overlay so dark text stays legible */}
-      <div className="absolute inset-0 bg-white/60" />
+      {/* Dark overlay for a clean, minimal look against the photo */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/55 to-black/70" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <motion.div
@@ -37,13 +37,15 @@ export function HeroSection() {
               priority
             />
           </div>
-          <span className="inline-block text-brand text-xs font-semibold uppercase tracking-[0.2em] mb-6">
+          <span className="inline-block text-accent text-xs font-semibold uppercase tracking-[0.2em] mb-6">
             University of Ottawa
           </span>
-          <h1 className="font-heading font-bold text-7xl sm:text-8xl lg:text-9xl text-gray-950 tracking-tight leading-none mb-6">
-            {t('hero.headline')}
+          <h1 className="font-display font-medium text-6xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-none mb-6">
+            {t('hero.headline_pre')}{' '}
+            <em className="italic">{t('hero.headline_em')}</em>{' '}
+            {t('hero.headline_post')}
           </h1>
-          <p className="max-w-lg mx-auto text-lg sm:text-xl text-gray-600 mb-10 leading-relaxed">
+          <p className="max-w-lg mx-auto text-lg sm:text-xl text-white/80 mb-10 leading-relaxed">
             {t('hero.sub')}
           </p>
         </motion.div>
@@ -62,7 +64,7 @@ export function HeroSection() {
           </Link>
           <Link
             href="/events"
-            className="px-8 py-4 border-2 border-gray-900 text-gray-900 font-semibold rounded-full hover:bg-gray-900 hover:text-white transition-colors"
+            className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-950 transition-colors"
           >
             {t('hero.cta_events')}
           </Link>

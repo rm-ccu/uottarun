@@ -4,11 +4,13 @@
     "home": "Home",
     "events": "Events",
     "team": "Team",
-    "sponsors": "Sponsors",
+    "collabs": "Collabs",
     "join": "Join"
   },
   "hero": {
-    "headline": "Run Ottawa.",
+    "headline_pre": "Run",
+    "headline_em": "Ottawa.",
+    "headline_post": "",
     "sub": "uOttaRun is the University of Ottawa's official running club. All paces, all levels — run with us.",
     "cta_join": "Join the Club",
     "cta_events": "Upcoming Events"
@@ -17,6 +19,9 @@
     "members": "Active Members",
     "events_year": "Events Per Year",
     "years": "Years Running"
+  },
+  "awards_section": {
+    "title": "Recognized by the UOSU Student Life Awards"
   },
   "events_section": {
     "title": "Upcoming Events",
@@ -35,7 +40,14 @@
     "tuesday": "Tuesday Run",
     "saturday": "Saturday Run",
     "coffee": "Coffee Run",
-    "guru": "GURU Run"
+    "guru": "GURU Run",
+    "alternates_caption": "Alternates most Saturdays",
+    "warmup": "Warmup",
+    "run_start": "Run",
+    "long_run": "Long run",
+    "short_run": "Short run",
+    "offseason_title": "On Summer Break",
+    "offseason_body": "Weekly runs are paused for the summer — see you in September!"
   },
   "event_card": {
     "distance": "Distance",
@@ -57,12 +69,13 @@
     "pacers_empty": "We're looking for pacers to join the team.",
     "pacers_apply": "Apply Here"
   },
-  "sponsors_page": {
-    "title": "Our Sponsors",
-    "sub": "uOttaRun is made possible by the generous support of our sponsors.",
-    "gold": "Gold",
-    "silver": "Silver",
-    "bronze": "Bronze",
+  "collabs_page": {
+    "title": "Collabs",
+    "sub": "uOttaRun is made possible by the charities, sponsors, and clubs we run alongside.",
+    "charities": "Charities We Support",
+    "sponsors": "Sponsors",
+    "uottawa_clubs": "uOttawa Club Collabs",
+    "run_clubs": "Run Club Collabs",
     "cta_title": "Become a Sponsor",
     "cta_body": "Help us grow Ottawa's running community. We'd love to discuss partnership opportunities with you.",
     "cta_button": "Contact Us"

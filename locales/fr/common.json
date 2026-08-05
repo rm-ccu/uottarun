@@ -4,11 +4,13 @@
     "home": "Accueil",
     "events": "Événements",
     "team": "Équipe",
-    "sponsors": "Commanditaires",
+    "collabs": "Collaborations",
     "join": "Rejoindre"
   },
   "hero": {
-    "headline": "Courons Ottawa.",
+    "headline_pre": "Courons",
+    "headline_em": "Ottawa.",
+    "headline_post": "",
     "sub": "uOttaCours est le club de course officiel de l'Université d'Ottawa. Tous les rythmes, tous les niveaux — courez avec nous.",
     "cta_join": "Rejoindre le club",
     "cta_events": "Événements à venir"
@@ -17,6 +19,9 @@
     "members": "Membres actifs",
     "events_year": "Événements par année",
     "years": "Années de course"
+  },
+  "awards_section": {
+    "title": "Reconnu par les Prix de la vie étudiante de l'UOSU"
   },
   "events_section": {
     "title": "Événements à venir",
@@ -35,7 +40,14 @@
     "tuesday": "Course du mardi",
     "saturday": "Course du samedi",
     "coffee": "Course café",
-    "guru": "Course GURU"
+    "guru": "Course GURU",
+    "alternates_caption": "En alternance presque tous les samedis",
+    "warmup": "Échauffement",
+    "run_start": "Départ",
+    "long_run": "Longue distance",
+    "short_run": "Courte distance",
+    "offseason_title": "En pause estivale",
+    "offseason_body": "Les courses hebdomadaires font relâche pour l'été — à bientôt en septembre !"
   },
   "event_card": {
     "distance": "Distance",
@@ -57,12 +69,13 @@
     "pacers_empty": "Nous cherchons des lièvres pour rejoindre l'équipe.",
     "pacers_apply": "Postuler ici"
   },
-  "sponsors_page": {
-    "title": "Nos commanditaires",
-    "sub": "uOttaCours est rendu possible grâce au généreux soutien de nos commanditaires.",
-    "gold": "Or",
-    "silver": "Argent",
-    "bronze": "Bronze",
+  "collabs_page": {
+    "title": "Collaborations",
+    "sub": "uOttaCours est rendu possible grâce aux organismes de bienfaisance, commanditaires et clubs avec qui nous courons.",
+    "charities": "Organismes que nous soutenons",
+    "sponsors": "Commanditaires",
+    "uottawa_clubs": "Clubs collaborateurs de l'U d'Ottawa",
+    "run_clubs": "Clubs de course collaborateurs",
     "cta_title": "Devenez commanditaire",
     "cta_body": "Aidez-nous à développer la communauté de course d'Ottawa. Nous serions ravis de discuter des possibilités de partenariat avec vous.",
     "cta_button": "Contactez-nous"

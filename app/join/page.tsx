@@ -19,7 +19,7 @@ export default function JoinPage() {
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-14"
       >
-        <h1 className="font-heading font-bold text-5xl sm:text-6xl text-gray-950">
+        <h1 className="font-display font-medium text-5xl sm:text-6xl text-gray-950">
           {t('join_page.title')}
         </h1>
         <p className="mt-4 text-lg text-gray-500 max-w-xl mx-auto">{t('join_page.sub')}</p>
@@ -57,9 +57,10 @@ export default function JoinPage() {
           transition={{ delay: 0.2 }}
           className="lg:col-span-2"
         >
-          <h2 className="font-heading font-semibold text-2xl text-gray-800 mb-5">
+          <h2 className="font-heading font-semibold text-2xl text-gray-800 mb-2">
             {t('join_page.links_title')}
           </h2>
+          <span className="block w-10 h-1 bg-accent rounded-full mb-5" />
           <div className="space-y-3 mb-6">
             {SOCIAL_LINKS.map(({ label, url }) => (
               <a
@@ -67,7 +68,7 @@ export default function JoinPage() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-brand hover:shadow-sm transition-all group"
+                className="flex items-center justify-between p-4 border border-brand-light rounded-xl hover:border-brand hover:shadow-sm transition-all group"
               >
                 <span className="font-medium text-gray-800 group-hover:text-brand transition-colors">
                   {label}
@@ -77,7 +78,7 @@ export default function JoinPage() {
             ))}
           </div>
 
-          <div className="p-4 bg-surface rounded-xl border border-gray-100">
+          <div className="p-4 bg-surface rounded-xl border border-brand-light">
             <p className="text-sm text-gray-500">
               {t('join_page.email_label')}:{' '}
               <a href="mailto:contact@uoc-uor.ca" className="text-brand hover:underline font-medium">

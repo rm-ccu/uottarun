@@ -21,7 +21,7 @@ export function EventCard({ event }: { event: Event }) {
   const day = date.getDate();
 
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex gap-5">
+    <div className="bg-white border border-brand-light rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow flex gap-5">
       <div className="shrink-0 w-14 text-center">
         <div className="bg-brand text-white rounded-t-lg py-1 text-xs font-bold tracking-wide">
           {month}

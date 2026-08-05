@@ -2,21 +2,44 @@
 
 import { useTranslation } from '../../lib/useTranslation';
 
-interface RecurringRun {
-  time: string;
-  distance: string;
-  location: string;
-  paceGroups: string[];
-  stravaUrl: string;
+interface PaceGroups {
+  long: string;
+  short: string;
 }
 
-interface SaturdayRun extends RecurringRun {
-  type: 'coffee' | 'guru';
+interface SemesterTime {
+  warmup: string;
+  run: string;
+}
+
+interface TuesdayConfig {
+  location: string;
+  stravaUrl: string;
+  fall: SemesterTime;
+  winter: SemesterTime;
+}
+
+interface SaturdayConfig {
+  location: string;
+  stravaUrl: string;
+  warmup: string;
+  run: string;
+  alternates: string[];
 }
 
 export interface RecurringConfig {
-  tuesday: RecurringRun;
-  saturday: SaturdayRun;
+  paceGroups: PaceGroups;
+  tuesday: TuesdayConfig;
+  saturday: SaturdayConfig;
+}
+
+type Semester = 'fall' | 'winter' | 'offseason';
+
+function getSemester(date: Date): Semester {
+  const month = date.getMonth() + 1;
+  if (month >= 9 && month <= 12) return 'fall';
+  if (month >= 1 && month <= 4) return 'winter';
+  return 'offseason';
 }
 
 function nextOccurrence(dayOfWeek: number): Date {
@@ -47,41 +70,66 @@ function DateBadge({ date }: { date: Date }) {
   );
 }
 
+function PaceBadges({ paceGroups }: { paceGroups: PaceGroups }) {
+  const { t } = useTranslation();
+  return (
+    <div className="mt-3 flex flex-wrap gap-1.5">
+      <span className="text-xs bg-secondary-light text-secondary-dark font-medium px-2.5 py-0.5 rounded-full">
+        {t('weekly_runs.long_run')}: {paceGroups.long}
+      </span>
+      <span className="text-xs bg-secondary-light text-secondary-dark font-medium px-2.5 py-0.5 rounded-full">
+        {t('weekly_runs.short_run')}: {paceGroups.short}
+      </span>
+    </div>
+  );
+}
+
 export function WeeklyRunsSection({ recurring }: { recurring: RecurringConfig }) {
   const { t } = useTranslation();
+  const semester = getSemester(new Date());
+
+  if (semester === 'offseason') {
+    return (
+      <section className="mb-14">
+        <h2 className="font-heading font-bold text-3xl sm:text-4xl text-gray-950 mb-3">
+          {t('events_page.weekly_title')}
+        </h2>
+        <span className="block w-10 h-1 bg-accent rounded-full mb-6" />
+        <div className="bg-brand-light border border-brand-light rounded-2xl p-8 text-center">
+          <p className="font-semibold text-gray-900 text-lg">{t('weekly_runs.offseason_title')}</p>
+          <p className="text-sm text-gray-600 mt-1">{t('weekly_runs.offseason_body')}</p>
+        </div>
+      </section>
+    );
+  }
+
   const tuesday = nextOccurrence(2);
   const saturday = nextOccurrence(6);
+  const tuesdayTimes = recurring.tuesday[semester];
 
   return (
     <section className="mb-14">
-      <h2 className="font-heading font-bold text-3xl sm:text-4xl text-gray-950 mb-6">
+      <h2 className="font-heading font-bold text-3xl sm:text-4xl text-gray-950 mb-3">
         {t('events_page.weekly_title')}
       </h2>
+      <span className="block w-10 h-1 bg-accent rounded-full mb-6" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
         {/* Tuesday */}
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex gap-5">
+        <div className="bg-white border border-brand-light rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow flex gap-5">
           <DateBadge date={tuesday} />
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-gray-900 text-lg">{t('weekly_runs.tuesday')}</h3>
-            <p className="text-sm text-gray-500 mt-0.5">{recurring.tuesday.time}</p>
+            <p className="text-sm text-gray-500 mt-0.5">
+              {t('weekly_runs.warmup')} {tuesdayTimes.warmup} · {t('weekly_runs.run_start')} {tuesdayTimes.run}
+            </p>
             <div className="mt-3 space-y-1">
-              <p className="text-sm text-gray-600">
-                <span className="font-medium">{t('event_card.distance')}:</span>{' '}
-                {recurring.tuesday.distance}
-              </p>
               <p className="text-sm text-gray-600">
                 <span className="font-medium">{t('event_card.location')}:</span>{' '}
                 {recurring.tuesday.location}
               </p>
             </div>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {recurring.tuesday.paceGroups.map((p) => (
-                <span key={p} className="text-xs bg-secondary-light text-secondary-dark font-medium px-2.5 py-0.5 rounded-full">
-                  {p}
-                </span>
-              ))}
-            </div>
+            <PaceBadges paceGroups={recurring.paceGroups} />
             <a
               href={recurring.tuesday.stravaUrl}
               target="_blank"
@@ -94,37 +142,29 @@ export function WeeklyRunsSection({ recurring }: { recurring: RecurringConfig })
         </div>
 
         {/* Saturday */}
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex gap-5">
+        <div className="bg-white border border-brand-light rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow flex gap-5">
           <DateBadge date={saturday} />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <h3 className="font-semibold text-gray-900 text-lg">{t('weekly_runs.saturday')}</h3>
-              <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
-                recurring.saturday.type === 'guru'
-                  ? 'bg-accent text-gray-900'
-                  : 'bg-secondary-light text-secondary-dark'
-              }`}>
-                {t(`weekly_runs.${recurring.saturday.type}`)}
+              <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-secondary-light text-secondary-dark">
+                {t('weekly_runs.coffee')}
+              </span>
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-accent text-gray-900">
+                {t('weekly_runs.guru')}
               </span>
             </div>
-            <p className="text-sm text-gray-500 mt-0.5">{recurring.saturday.time}</p>
+            <p className="text-xs text-gray-400 mt-1">{t('weekly_runs.alternates_caption')}</p>
+            <p className="text-sm text-gray-500 mt-1.5">
+              {t('weekly_runs.warmup')} {recurring.saturday.warmup} · {t('weekly_runs.run_start')} {recurring.saturday.run}
+            </p>
             <div className="mt-3 space-y-1">
-              <p className="text-sm text-gray-600">
-                <span className="font-medium">{t('event_card.distance')}:</span>{' '}
-                {recurring.saturday.distance}
-              </p>
               <p className="text-sm text-gray-600">
                 <span className="font-medium">{t('event_card.location')}:</span>{' '}
                 {recurring.saturday.location}
               </p>
             </div>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {recurring.saturday.paceGroups.map((p) => (
-                <span key={p} className="text-xs bg-secondary-light text-secondary-dark font-medium px-2.5 py-0.5 rounded-full">
-                  {p}
-                </span>
-              ))}
-            </div>
+            <PaceBadges paceGroups={recurring.paceGroups} />
             <a
               href={recurring.saturday.stravaUrl}
               target="_blank"

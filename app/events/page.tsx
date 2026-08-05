@@ -20,7 +20,7 @@ export default function EventsPage() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-12"
       >
-        <h1 className="font-heading font-bold text-5xl sm:text-6xl text-gray-950">
+        <h1 className="font-display font-medium text-5xl sm:text-6xl text-gray-950">
           {t('events_page.title')}
         </h1>
         <p className="mt-4 text-lg text-gray-500">{t('events_page.sub')}</p>
@@ -29,9 +29,10 @@ export default function EventsPage() {
       <WeeklyRunsSection recurring={recurring} />
 
       <section>
-        <h2 className="font-heading font-bold text-3xl sm:text-4xl text-gray-950 mb-6">
+        <h2 className="font-heading font-bold text-3xl sm:text-4xl text-gray-950 mb-3">
           {t('events_page.special_title')}
         </h2>
+        <span className="block w-10 h-1 bg-accent rounded-full mb-6" />
 
         {typedEventsData.events.length === 0 ? (
           <p className="text-gray-400 text-sm">{t('events_page.no_special')}</p>
