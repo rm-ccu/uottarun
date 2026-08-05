@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { ExecCard, type ExecMember } from './TeamCard';
 
 export function ExecCarousel({ items }: { items: ExecMember[] }) {
@@ -89,21 +88,11 @@ export function ExecCarousel({ items }: { items: ExecMember[] }) {
     <div className="relative">
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-4 px-4 py-4 sm:mx-0 sm:px-0"
+        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-4 px-4 py-1 sm:mx-0 sm:px-0"
       >
         {loop.map((member, i) => (
           <div key={`${member.id}-${i}`} data-carousel-card className="shrink-0 w-64 sm:w-72 snap-start">
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{
-                duration: 3.2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: (i % items.length) * 0.25,
-              }}
-            >
-              <ExecCard member={member} />
-            </motion.div>
+            <ExecCard member={member} />
           </div>
         ))}
       </div>
