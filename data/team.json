@@ -1,48 +1,118 @@
 {
-  "exec": [
-    {
-      "id": "1",
-      "name": "Sophie LaFlamme",
-      "role": "Co-President",
-      "bio": "Bio to be filled.",
-      "bioFr": null,
-      "image": null
-    },
-    {
-      "id": "2",
-      "name": "Rory McCulloch",
-      "role": "Co-President",
-      "bio": "Bio to be filled.",
-      "bioFr": null,
-      "image": null
-    },
-    {
-      "id": "3",
-      "name": "Emily Alexander",
-      "role": "VP Communications",
-      "bio": "Bio to be filled.",
-      "bioFr": null,
-      "image": null
-    },
-    {
-      "id": "4",
-      "name": "Renée Treleaven",
-      "role": "VP Admin",
-      "bio": "Bio to be filled.",
-      "bioFr": null,
-      "image": null
-    }
-  ],
-  "alumni": [
-    { "id": "al1", "name": "Aya Al-Ali",        "roles": ["Co-Founder"] },
-    { "id": "al2", "name": "Alyssa Primdahl",   "roles": ["Co-Founder"] },
-    { "id": "al3", "name": "Ève Tremblay",      "roles": ["VP Communications '24–'25", "President '25–'26"] },
-    { "id": "al4", "name": "Avery Bird",        "roles": ["VP Admin '24–'25"] },
-    { "id": "al5", "name": "Talia Ko",          "roles": ["VP Events '24–'25"] },
-    { "id": "al6", "name": "Rhys Clee",         "roles": ["VP Events '25–'26"] }
-  ],
-  "pacerFormUrl": "https://forms.gle/oMmof5bjcnf8kqj77",
+  "currentYear": "2025-26",
   "_pacerTemplate": { "id": "pN", "name": "First L.", "pace": "X:XX/km", "image": null },
-  "pacers": [
+  "years": [
+    {
+      "id": "2025-26",
+      "label": "2025–26",
+      "pacerFormUrl": "https://forms.gle/oMmof5bjcnf8kqj77",
+      "exec": [
+        {
+          "id": "2526-1",
+          "name": "Sophie LaFlamme",
+          "role": "Co-President",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-2",
+          "name": "Rory McCulloch",
+          "role": "Co-President",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-3",
+          "name": "Emily Alexander",
+          "role": "VP Communications",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-4",
+          "name": "Renée Treleaven",
+          "role": "VP Admin",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-5",
+          "name": "Rhys Clee",
+          "role": "VP Events",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        }
+      ],
+      "pacers": []
+    },
+    {
+      "id": "2024-25",
+      "label": "2024–25",
+      "pacerFormUrl": null,
+      "exec": [
+        {
+          "id": "2425-1",
+          "name": "Aya Al-Ali",
+          "role": "Co-President",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-2",
+          "name": "Alyssa Primdahl",
+          "role": "Co-President",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-3",
+          "name": "Avery Bird",
+          "role": "Admin",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-4",
+          "name": "Sophie LaFlamme",
+          "role": "Junior Comms",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-5",
+          "name": "Ève Tremblay",
+          "role": "VP Communications",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-6",
+          "name": "Rory McCulloch",
+          "role": "Junior Admin",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-7",
+          "name": "Talia Ko",
+          "role": "VP Events",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        }
+      ],
+      "pacers": []
+    }
   ]
 }

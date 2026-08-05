@@ -7,18 +7,21 @@ import collabs from '../../data/collabs.json';
 interface Collab {
   id: string;
   name: string;
+  nameFr?: string;
   description: string;
   url: string | null;
 }
 
 function CollabCard({ collab, emphasized = false }: { collab: Collab; emphasized?: boolean }) {
+  const { lang } = useTranslation();
+  const displayName = lang === 'fr' && collab.nameFr ? collab.nameFr : collab.name;
   const baseClasses = emphasized
     ? 'block border border-accent-dark/30 bg-accent/10 rounded-2xl p-8 text-center hover:border-accent-dark hover:shadow-md transition-all'
-    : 'block border border-gray-200 rounded-2xl p-8 text-center hover:border-brand hover:shadow-md transition-all';
+    : 'block border border-brand-light rounded-2xl p-8 text-center hover:border-brand hover:shadow-md transition-all';
 
   const content = (
     <>
-      <p className="font-semibold text-gray-900 text-xl">{collab.name}</p>
+      <p className="font-semibold text-gray-900 text-xl">{displayName}</p>
       <p className="text-sm text-gray-500 mt-1">{collab.description}</p>
     </>
   );

@@ -1,28 +1,28 @@
 {
   "charities": [
-    { "id": "c1", "name": "CBS", "description": "Community charity partner.", "url": null },
-    { "id": "c2", "name": "CCS", "description": "Community charity partner.", "url": null },
-    { "id": "c3", "name": "Relay For Life", "description": "Community charity partner.", "url": null }
+    { "id": "c1", "name": "CBS", "description": "Canadian Blood Services", "url": "https://www.blood.ca" },
+    { "id": "c2", "name": "CCS", "description": "Canadian Cancer Society", "url": "https://www.cancer.ca" },
+    { "id": "c3", "name": "Relay For Life", "description": "A Canadian Cancer Society fundraising event.", "url": "https://www.cancer.ca" }
   ],
   "sponsors": [
     { "id": "s1", "name": "Patagonia", "description": "Outdoor apparel and gear.", "url": "https://www.patagonia.com" },
-    { "id": "s2", "name": "XACT", "description": "Club sponsor.", "url": null },
-    { "id": "s3", "name": "Guru", "description": "Club sponsor.", "url": null },
+    { "id": "s2", "name": "XACT", "description": "Club sponsor.", "url": "https://www.xactnutrition.com/" },
+    { "id": "s3", "name": "Guru", "description": "Club sponsor.", "url": "https://guruenergy.com/" },
     { "id": "s4", "name": "Anytime Fitness", "description": "24/7 gym access.", "url": "https://www.anytimefitness.com" },
     { "id": "s5", "name": "uOttawa", "description": "University of Ottawa.", "url": "https://www.uottawa.ca" },
-    { "id": "s6", "name": "Oxygen Fitness", "description": "Local Ottawa gym.", "url": null },
-    { "id": "s7", "name": "Xpand", "description": "Club sponsor.", "url": null }
+    { "id": "s6", "name": "Oxygen Fitness", "description": "Local Ottawa gym.", "url": "https://oxygenyogaandfitness.com/" },
+    { "id": "s7", "name": "Xpand", "description": "Club sponsor.", "url": "https://www.xpandlaces.com/" }
   ],
   "uottawaClubs": [
-    { "id": "u1", "name": "Outdoors Club", "description": "uOttawa club collab.", "url": null },
-    { "id": "u2", "name": "UOSU", "description": "University of Ottawa Students' Union.", "url": null },
-    { "id": "u3", "name": "GeeGees Rowing", "description": "uOttawa club collab.", "url": null },
-    { "id": "u4", "name": "uOttawa Gym Bros", "description": "uOttawa club collab.", "url": null },
-    { "id": "u5", "name": "uOTriathlon", "description": "uOttawa club collab.", "url": null }
+    { "id": "u1", "name": "Outdehors Club", "description": "uOttawa club collab.", "url": "https://www.instagram.com/outdehors/?hl=en" },
+    { "id": "u2", "name": "UOSU", "nameFr": "SEUO", "description": "University of Ottawa Students' Union.", "url": "https://www.seuo-uosu.com/" },
+    { "id": "u3", "name": "GeeGees Rowing", "nameFr": "GeeGees Aviron", "description": "uOttawa club collab.", "url": "https://www.instagram.com/geegeesrowing/?hl=en" },
+    { "id": "u4", "name": "GymBro uOttawa", "description": "uOttawa club collab.", "url": "https://www.instagram.com/gymbrouottawa/" },
+    { "id": "u5", "name": "uOTriathlon Club", "description": "uOttawa club collab.", "url": "https://www.instagram.com/uotriathlon/" }
   ],
   "runClubs": [
-    { "id": "r1", "name": "Ottawa Free Fitness", "description": "Ottawa run club collab.", "url": null },
-    { "id": "r2", "name": "Slopokes", "description": "Ottawa run club collab.", "url": null },
-    { "id": "r3", "name": "Black Run Club Ottawa", "description": "Ottawa run club collab.", "url": null }
+    { "id": "r1", "name": "Ottawa Free Fitness", "description": "Ottawa run club collab.", "url": "https://www.instagram.com/ottfreefit/?hl=en" },
+    { "id": "r2", "name": "Slowpokes", "description": "Ottawa run club collab.", "url": "https://www.instagram.com/slowpokes.club/?hl=en" },
+    { "id": "r3", "name": "Blackrun", "description": "Ottawa run club collab.", "url": "https://www.instagram.com/blackrun.ncr/" }
   ]
 }

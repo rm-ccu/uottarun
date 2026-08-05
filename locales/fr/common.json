@@ -58,15 +58,18 @@
     "Co-President": "Co-Président",
     "VP Communications": "VP Communications",
     "VP Admin": "VP Admin",
-    "VP Events": "VP Événements"
+    "VP Events": "VP Événements",
+    "Admin": "Admin",
+    "Junior Comms": "Comms junior",
+    "Junior Admin": "Admin junior"
   },
   "team_page": {
     "title": "Notre équipe",
     "sub": "Notre équipe exécutive dévouée et nos bénévoles maintiennent le club en mouvement.",
     "exec_title": "Équipe exécutive",
     "pacers_title": "Lièvres",
-    "alumni_title": "Anciens membres",
     "pacers_empty": "Nous cherchons des lièvres pour rejoindre l'équipe.",
+    "pacers_archived_empty": "La liste des lièvres pour cette année n'a pas encore été ajoutée.",
     "pacers_apply": "Postuler ici"
   },
   "collabs_page": {
