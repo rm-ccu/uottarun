@@ -3,10 +3,18 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { ExecCard, type ExecMember } from './TeamCard';
 
+// 5 copies of the list give a generous drag buffer either side of the
+// middle copy, so free scrolling (trackpad/touch) never needs a
+// programmatic scroll-position correction — that correction, even when
+// carefully timed, is what was fighting the browser's native scroll
+// physics and causing the flicker. Wrapping is instead handled only
+// through the arrow buttons, where we fully control the timing.
+const CLONE_COUNT = 5;
+const MIDDLE_INDEX = Math.floor(CLONE_COUNT / 2);
+
 export function ExecCarousel({ items }: { items: ExecMember[] }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const setWidthRef = useRef(0);
-  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const measureSetWidth = useCallback(() => {
     const el = scrollerRef.current;
@@ -34,76 +42,53 @@ export function ExecCarousel({ items }: { items: ExecMember[] }) {
     const raf = requestAnimationFrame(() => {
       const setWidth = measureSetWidth();
       setWidthRef.current = setWidth;
-      jumpTo(setWidth);
+      jumpTo(setWidth * MIDDLE_INDEX);
     });
     return () => cancelAnimationFrame(raf);
   }, [items.length, measureSetWidth, jumpTo]);
 
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el || items.length === 0) return;
-
-    // Only re-center once scrolling has *fully* stopped — resetting
-    // scrollLeft mid-gesture (including during trackpad momentum) fights the
-    // browser's native scroll/snap physics and is what caused the flicker.
-    // The native `scrollend` event is the reliable signal for that; a longer
-    // debounce is the fallback for browsers that don't support it yet.
-    const supportsScrollEnd = 'onscrollend' in window;
-
-    const reconcile = () => {
-      const setWidth = setWidthRef.current;
-      if (setWidth <= 0) return;
-      if (el.scrollLeft < setWidth * 0.5) {
-        jumpTo(el.scrollLeft + setWidth);
-      } else if (el.scrollLeft > setWidth * 1.5) {
-        jumpTo(el.scrollLeft - setWidth);
-      }
-    };
-
-    const handleScrollEnd = () => reconcile();
-
-    const handleScrollDebounced = () => {
-      if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
-      settleTimerRef.current = setTimeout(reconcile, 400);
-    };
-
     const handleResize = () => {
       const setWidth = measureSetWidth();
       setWidthRef.current = setWidth;
-      jumpTo(setWidth);
+      jumpTo(setWidth * MIDDLE_INDEX);
     };
-
-    if (supportsScrollEnd) {
-      el.addEventListener('scrollend', handleScrollEnd, { passive: true });
-    } else {
-      el.addEventListener('scroll', handleScrollDebounced, { passive: true });
-    }
     window.addEventListener('resize', handleResize);
-    return () => {
-      if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
-      el.removeEventListener('scrollend', handleScrollEnd);
-      el.removeEventListener('scroll', handleScrollDebounced);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [items, measureSetWidth, jumpTo]);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [measureSetWidth, jumpTo]);
 
   const scrollByCard = (dir: 1 | -1) => {
     const el = scrollerRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>('[data-carousel-card]');
     const amount = (card?.offsetWidth ?? 288) + 24;
+    const setWidth = setWidthRef.current;
+
+    // If a free drag has carried us out toward either end, silently
+    // re-center on the middle copy first, then perform the requested
+    // scroll from there — both happen synchronously in this click
+    // handler, before the next paint, so it reads as one smooth scroll.
+    if (setWidth > 0) {
+      const safeLow = setWidth * 1;
+      const safeHigh = setWidth * (CLONE_COUNT - 1);
+      if (el.scrollLeft < safeLow || el.scrollLeft > safeHigh) {
+        const offsetIntoSet = el.scrollLeft % setWidth;
+        jumpTo(setWidth * MIDDLE_INDEX + offsetIntoSet);
+      }
+    }
+
     el.scrollBy({ left: dir * amount, behavior: 'smooth' });
   };
 
   if (items.length === 0) return null;
 
-  const loop = [...items, ...items, ...items];
+  const loop = Array.from({ length: CLONE_COUNT }, () => items).flat();
 
   return (
     <div className="relative">
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-4 px-4 py-4 sm:mx-0 sm:px-0"
+        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-proximity scrollbar-hide -mx-4 px-4 py-4 sm:mx-0 sm:px-0"
       >
         {loop.map((member, i) => (
           <div key={`${member.id}-${i}`} data-carousel-card className="shrink-0 w-64 sm:w-72 snap-start">
