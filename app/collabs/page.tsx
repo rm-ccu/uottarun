@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../../lib/useTranslation';
 import collabs from '../../data/collabs.json';
@@ -10,6 +11,7 @@ interface Collab {
   nameFr?: string;
   description: string;
   url: string | null;
+  logo: string | null;
 }
 
 function CollabCard({ collab, emphasized = false }: { collab: Collab; emphasized?: boolean }) {
@@ -21,6 +23,11 @@ function CollabCard({ collab, emphasized = false }: { collab: Collab; emphasized
 
   const content = (
     <>
+      {collab.logo && (
+        <div className="relative w-16 h-16 mx-auto mb-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 overflow-hidden">
+          <Image src={collab.logo} alt="" fill className="object-contain p-2" />
+        </div>
+      )}
       <p className="font-semibold text-gray-900 text-xl">{displayName}</p>
       <p className="text-sm text-gray-500 mt-1">{collab.description}</p>
     </>

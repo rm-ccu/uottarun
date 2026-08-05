@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslation } from '../../lib/useTranslation';
 import collabs from '../../data/collabs.json';
 
@@ -16,8 +17,18 @@ export function SponsorStrip() {
           {t('collabs_page.sponsors')}
         </p>
         <div className="flex flex-wrap justify-center gap-10 items-center">
-          {sponsors.map((sponsor) =>
-            sponsor.url ? (
+          {sponsors.map((sponsor) => {
+            const inner = (
+              <span className="flex items-center gap-2">
+                {sponsor.logo && (
+                  <span className="relative w-7 h-7 shrink-0">
+                    <Image src={sponsor.logo} alt="" fill className="object-contain" />
+                  </span>
+                )}
+                {sponsor.name}
+              </span>
+            );
+            return sponsor.url ? (
               <a
                 key={sponsor.id}
                 href={sponsor.url}
@@ -25,14 +36,14 @@ export function SponsorStrip() {
                 rel="noopener noreferrer"
                 className="text-gray-600 font-semibold text-lg hover:text-brand transition-colors"
               >
-                {sponsor.name}
+                {inner}
               </a>
             ) : (
               <span key={sponsor.id} className="text-gray-600 font-semibold text-lg">
-                {sponsor.name}
+                {inner}
               </span>
-            )
-          )}
+            );
+          })}
         </div>
       </div>
     </section>
