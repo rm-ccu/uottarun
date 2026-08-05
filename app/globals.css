@@ -26,6 +26,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: #FFFFF4;
   color: #111111;

@@ -1,48 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../../lib/useTranslation';
+import { CollabCarousel, type Collab } from '../../components/CollabCarousel';
 import collabs from '../../data/collabs.json';
-
-interface Collab {
-  id: string;
-  name: string;
-  nameFr?: string;
-  description: string;
-  url: string | null;
-  logo: string | null;
-}
-
-function CollabCard({ collab, emphasized = false }: { collab: Collab; emphasized?: boolean }) {
-  const { lang } = useTranslation();
-  const displayName = lang === 'fr' && collab.nameFr ? collab.nameFr : collab.name;
-  const baseClasses = emphasized
-    ? 'block border border-accent-dark/30 bg-accent/10 rounded-2xl p-8 text-center hover:border-accent-dark hover:shadow-md transition-all'
-    : 'block border border-brand-light rounded-2xl p-8 text-center hover:border-brand hover:shadow-md transition-all';
-
-  const content = (
-    <>
-      {collab.logo && (
-        <div className="relative w-16 h-16 mx-auto mb-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 overflow-hidden">
-          <Image src={collab.logo} alt="" fill className="object-contain p-2" />
-        </div>
-      )}
-      <p className="font-semibold text-gray-900 text-xl">{displayName}</p>
-      <p className="text-sm text-gray-500 mt-1">{collab.description}</p>
-    </>
-  );
-
-  if (!collab.url) {
-    return <div className={baseClasses}>{content}</div>;
-  }
-
-  return (
-    <a href={collab.url} target="_blank" rel="noopener noreferrer" className={baseClasses}>
-      {content}
-    </a>
-  );
-}
 
 export default function CollabsPage() {
   const { t } = useTranslation();
@@ -55,7 +16,7 @@ export default function CollabsPage() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -85,11 +46,7 @@ export default function CollabsPage() {
                 </h2>
                 <div className={`flex-1 h-px ${category.emphasized ? 'bg-accent-dark/30' : 'bg-brand-light'}`} />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {items.map((collab) => (
-                  <CollabCard key={collab.id} collab={collab} emphasized={category.emphasized} />
-                ))}
-              </div>
+              <CollabCarousel items={items} emphasized={category.emphasized} />
             </motion.section>
           );
         })}
