@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '../../lib/useTranslation';
 
 const STATS = [
-  { value: '200+', key: 'stats.members' },
-  { value: '30+', key: 'stats.events_year' },
-  { value: '6', key: 'stats.years' },
+  { value: '600+', key: 'stats.members' },
+  { value: '15+', key: 'stats.events_year' },
+  { value: '3', key: 'stats.years' },
 ] as const;
 
 export function StatsSection() {

@@ -1,14 +1,14 @@
 {
-  "currentYear": "2025-26",
+  "currentYear": "2026-27",
   "_pacerTemplate": { "id": "pN", "name": "First L.", "pace": "X:XX/km", "image": null },
   "years": [
     {
-      "id": "2025-26",
-      "label": "2025–26",
+      "id": "2026-27",
+      "label": "2026–27",
       "pacerFormUrl": "https://forms.gle/oMmof5bjcnf8kqj77",
       "exec": [
         {
-          "id": "2526-1",
+          "id": "2627-1",
           "name": "Sophie LaFlamme",
           "role": "Co-President",
           "bio": "Bio to be filled.",
@@ -16,7 +16,7 @@
           "image": null
         },
         {
-          "id": "2526-2",
+          "id": "2627-2",
           "name": "Rory McCulloch",
           "role": "Co-President",
           "bio": "Bio to be filled.",
@@ -24,7 +24,7 @@
           "image": null
         },
         {
-          "id": "2526-3",
+          "id": "2627-3",
           "name": "Emily Alexander",
           "role": "VP Communications",
           "bio": "Bio to be filled.",
@@ -32,7 +32,7 @@
           "image": null
         },
         {
-          "id": "2526-4",
+          "id": "2627-4",
           "name": "Renée Treleaven",
           "role": "VP Admin",
           "bio": "Bio to be filled.",
@@ -40,9 +40,65 @@
           "image": null
         },
         {
-          "id": "2526-5",
+          "id": "2627-5",
           "name": "Rhys Clee",
           "role": "VP Events",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        }
+      ],
+      "pacers": []
+    },
+    {
+      "id": "2025-26",
+      "label": "2025–26",
+      "pacerFormUrl": null,
+      "exec": [
+        {
+          "id": "2526-1",
+          "name": "Ève Tremblay",
+          "role": "President",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-2",
+          "name": "Sophie LaFlamme",
+          "role": "VP Communications",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-3",
+          "name": "Rory McCulloch",
+          "role": "VP Admin",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-4",
+          "name": "Rhys Clee",
+          "role": "VP Events",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-5",
+          "name": "Emily Alexander",
+          "role": "Junior Comms",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2526-6",
+          "name": "Renée Treleaven",
+          "role": "Junior Admin",
           "bio": "Bio to be filled.",
           "bioFr": null,
           "image": null
@@ -73,22 +129,6 @@
         },
         {
           "id": "2425-3",
-          "name": "Avery Bird",
-          "role": "Admin",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
-        },
-        {
-          "id": "2425-4",
-          "name": "Sophie LaFlamme",
-          "role": "Junior Comms",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
-        },
-        {
-          "id": "2425-5",
           "name": "Ève Tremblay",
           "role": "VP Communications",
           "bio": "Bio to be filled.",
@@ -96,17 +136,33 @@
           "image": null
         },
         {
+          "id": "2425-4",
+          "name": "Talia Ko",
+          "role": "VP Events",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
+          "id": "2425-5",
+          "name": "Avery Bird",
+          "role": "Admin",
+          "bio": "Bio to be filled.",
+          "bioFr": null,
+          "image": null
+        },
+        {
           "id": "2425-6",
-          "name": "Rory McCulloch",
-          "role": "Junior Admin",
+          "name": "Sophie LaFlamme",
+          "role": "Junior Comms",
           "bio": "Bio to be filled.",
           "bioFr": null,
           "image": null
         },
         {
           "id": "2425-7",
-          "name": "Talia Ko",
-          "role": "VP Events",
+          "name": "Rory McCulloch",
+          "role": "Junior Admin",
           "bio": "Bio to be filled.",
           "bioFr": null,
           "image": null

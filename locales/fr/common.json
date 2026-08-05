@@ -55,6 +55,7 @@
     "pace_groups": "Groupes de rythme"
   },
   "exec_roles": {
+    "President": "Président",
     "Co-President": "Co-Président",
     "VP Communications": "VP Communications",
     "VP Admin": "VP Admin",

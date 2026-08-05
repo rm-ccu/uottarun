@@ -55,6 +55,7 @@
     "pace_groups": "Pace Groups"
   },
   "exec_roles": {
+    "President": "President",
     "Co-President": "Co-President",
     "VP Communications": "VP Communications",
     "VP Admin": "VP Admin",
