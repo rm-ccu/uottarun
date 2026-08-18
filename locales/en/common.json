@@ -71,7 +71,10 @@
     "pacers_title": "Pacers",
     "pacers_empty": "We're looking for pacers to join the team.",
     "pacers_archived_empty": "Pacer roster for this year hasn't been added yet.",
-    "pacers_apply": "Apply Here"
+    "pacers_apply": "Apply Here",
+    "season_fall": "Fall",
+    "season_winter": "Winter",
+    "season_both": "Fall & Winter"
   },
   "collabs_page": {
     "title": "Collabs",

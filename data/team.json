@@ -1,6 +1,6 @@
 {
   "currentYear": "2026-27",
-  "_pacerTemplate": { "id": "pN", "name": "First L.", "pace": "X:XX/km", "image": null },
+  "_pacerTemplate": { "id": "pN", "name": "First L.", "season": "fall | winter | both", "image": null },
   "years": [
     {
       "id": "2026-27",
@@ -104,7 +104,40 @@
           "image": null
         }
       ],
-      "pacers": []
+      "pacers": [
+        { "id": "2526-p1", "name": "Olivia Onesi", "season": "both", "image": null },
+        { "id": "2526-p2", "name": "Adrien Dellah", "season": "both", "image": null },
+        { "id": "2526-p3", "name": "Jade Dupont-Clement", "season": "both", "image": null },
+        { "id": "2526-p4", "name": "Eli Larose", "season": "both", "image": null },
+        { "id": "2526-p5", "name": "Garima Arora", "season": "both", "image": null },
+        { "id": "2526-p6", "name": "Megan Satumba", "season": "fall", "image": null },
+        { "id": "2526-p7", "name": "Rishab Sahai", "season": "both", "image": null },
+        { "id": "2526-p8", "name": "Alfonso Figueroa Martinez", "season": "both", "image": null },
+        { "id": "2526-p9", "name": "Jada Muroff", "season": "both", "image": null },
+        { "id": "2526-p10", "name": "Eli Zima Luste", "season": "both", "image": null },
+        { "id": "2526-p11", "name": "Huy Nguyen", "season": "both", "image": null },
+        { "id": "2526-p12", "name": "Sydney Drew", "season": "both", "image": null },
+        { "id": "2526-p13", "name": "Clara Morrow", "season": "both", "image": null },
+        { "id": "2526-p14", "name": "Sara Parent", "season": "both", "image": null },
+        { "id": "2526-p15", "name": "Anson Moorey", "season": "both", "image": null },
+        { "id": "2526-p16", "name": "Katyanna Copping", "season": "fall", "image": null },
+        { "id": "2526-p17", "name": "Sophie Dippel", "season": "both", "image": null },
+        { "id": "2526-p18", "name": "Laurent Bourget", "season": "both", "image": null },
+        { "id": "2526-p19", "name": "Yuvraj Rathore", "season": "both", "image": null },
+        { "id": "2526-p20", "name": "Micah Schuurman", "season": "both", "image": null },
+        { "id": "2526-p21", "name": "Olivia Eric", "season": "both", "image": null },
+        { "id": "2526-p22", "name": "Jakob Proos", "season": "both", "image": null },
+        { "id": "2526-p23", "name": "Alma Sannoufi", "season": "both", "image": null },
+        { "id": "2526-p24", "name": "Lili Langois", "season": "both", "image": null },
+        { "id": "2526-p25", "name": "Mikayla Kurbel", "season": "winter", "image": null },
+        { "id": "2526-p26", "name": "Charlotte Hou", "season": "winter", "image": null },
+        { "id": "2526-p27", "name": "Duncan Tong", "season": "winter", "image": null },
+        { "id": "2526-p28", "name": "Norah Fearon", "season": "winter", "image": null },
+        { "id": "2526-p29", "name": "Marc Gagnon", "season": "winter", "image": null },
+        { "id": "2526-p30", "name": "Niki Aghmaghani", "season": "winter", "image": null },
+        { "id": "2526-p31", "name": "Gavin Karow", "season": "winter", "image": null },
+        { "id": "2526-p32", "name": "Evan Macaulay", "season": "winter", "image": null }
+      ]
     },
     {
       "id": "2024-25",
@@ -168,7 +201,33 @@
           "image": null
         }
       ],
-      "pacers": []
+      "pacers": [
+        { "id": "2425-p1", "name": "Juliane Duchesne", "season": "both", "image": null },
+        { "id": "2425-p2", "name": "Adrien Dellah", "season": "both", "image": null },
+        { "id": "2425-p3", "name": "Libby Lacroix", "season": "both", "image": null },
+        { "id": "2425-p4", "name": "Sydney Drew", "season": "both", "image": null },
+        { "id": "2425-p5", "name": "Sedra Al-Khoubbi", "season": "fall", "image": null },
+        { "id": "2425-p6", "name": "Cadence Hanck", "season": "fall", "image": null },
+        { "id": "2425-p7", "name": "Jade Dupont-Clément", "season": "both", "image": null },
+        { "id": "2425-p8", "name": "Jayden Craig", "season": "both", "image": null },
+        { "id": "2425-p9", "name": "Gustavo Junqueira", "season": "both", "image": null },
+        { "id": "2425-p10", "name": "Micah Schurrman", "season": "both", "image": null },
+        { "id": "2425-p11", "name": "Claudia Winfield-Hicks", "season": "both", "image": null },
+        { "id": "2425-p12", "name": "Garima Arora", "season": "both", "image": null },
+        { "id": "2425-p13", "name": "Niyol Jha", "season": "both", "image": null },
+        { "id": "2425-p14", "name": "Nicolas Guindon", "season": "both", "image": null },
+        { "id": "2425-p15", "name": "Veronica Sametz", "season": "both", "image": null },
+        { "id": "2425-p16", "name": "Brendo Clark", "season": "both", "image": null },
+        { "id": "2425-p17", "name": "Aidan Sachdev", "season": "winter", "image": null },
+        { "id": "2425-p18", "name": "Olivia Eric", "season": "winter", "image": null },
+        { "id": "2425-p19", "name": "Rishab Sahai", "season": "winter", "image": null },
+        { "id": "2425-p20", "name": "Rory O'Connell", "season": "winter", "image": null },
+        { "id": "2425-p21", "name": "Sara Parent", "season": "winter", "image": null },
+        { "id": "2425-p22", "name": "Suman Wijayanayagam", "season": "winter", "image": null },
+        { "id": "2425-p23", "name": "Yuvraj Rathore", "season": "winter", "image": null },
+        { "id": "2425-p24", "name": "Ali Abrahem", "season": "winter", "image": null },
+        { "id": "2425-p25", "name": "Suzanne Gruz", "season": "winter", "image": null }
+      ]
     }
   ]
 }

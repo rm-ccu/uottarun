@@ -12,12 +12,20 @@ export interface ExecMember {
   image: string | null;
 }
 
+export type PacerSeason = 'fall' | 'winter' | 'both';
+
 export interface PacerMember {
   id: string;
   name: string;
-  pace: string;
+  season: PacerSeason;
   image: string | null;
 }
+
+const SEASON_CHIP_STYLES: Record<PacerSeason, string> = {
+  fall: 'bg-accent/15 text-accent-dark border-accent/40',
+  winter: 'bg-brand-light text-brand border-brand/30',
+  both: 'bg-secondary-light text-secondary-dark border-secondary/40',
+};
 
 export function ExecCard({ member }: { member: ExecMember }) {
   const { t, lang } = useTranslation();
@@ -49,6 +57,8 @@ export function ExecCard({ member }: { member: ExecMember }) {
 }
 
 export function PacerCard({ member }: { member: PacerMember }) {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white border border-brand-light rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow flex items-center gap-3">
       <div className="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center shrink-0 overflow-hidden relative">
@@ -59,8 +69,10 @@ export function PacerCard({ member }: { member: PacerMember }) {
         )}
       </div>
       <p className="font-medium text-gray-900 text-sm flex-1 min-w-0 truncate">{member.name}</p>
-      <span className="text-xs bg-gray-100 text-gray-700 font-medium px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
-        {member.pace}
+      <span
+        className={`text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 border ${SEASON_CHIP_STYLES[member.season]}`}
+      >
+        {t(`team_page.season_${member.season}`)}
       </span>
     </div>
   );

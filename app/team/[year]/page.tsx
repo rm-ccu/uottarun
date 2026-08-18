@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import teamData from '../../../data/team.json';
-import { TeamYearView } from '../../../components/TeamYearView';
+import { TeamYearView, type TeamYear } from '../../../components/TeamYearView';
 
 export function generateStaticParams() {
   return teamData.years.map((y) => ({ year: y.id }));
@@ -14,7 +14,7 @@ export default async function TeamYearPage({ params }: { params: Promise<{ year:
 
   return (
     <TeamYearView
-      year={yearData}
+      year={yearData as TeamYear}
       years={teamData.years.map(({ id, label }) => ({ id, label }))}
       currentYear={teamData.currentYear}
     />

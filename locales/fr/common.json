@@ -71,7 +71,10 @@
     "pacers_title": "Lièvres",
     "pacers_empty": "Nous cherchons des lièvres pour rejoindre l'équipe.",
     "pacers_archived_empty": "La liste des lièvres pour cette année n'a pas encore été ajoutée.",
-    "pacers_apply": "Postuler ici"
+    "pacers_apply": "Postuler ici",
+    "season_fall": "Automne",
+    "season_winter": "Hiver",
+    "season_both": "Automne et hiver"
   },
   "collabs_page": {
     "title": "Collaborations",
