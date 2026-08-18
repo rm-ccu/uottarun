@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../lib/useTranslation';
 import { ExecCard, PacerCard, type ExecMember, type PacerMember } from './TeamCard';
-import { Carousel } from './Carousel';
 
 export interface TeamYear {
   id: string;
@@ -97,19 +96,18 @@ export function TeamYearView({
             )}
           </div>
         ) : (
-          <Carousel
-            items={year.pacers}
-            cardClassName="w-64 sm:w-72"
-            renderItem={(member, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {year.pacers.map((member, i) => (
               <motion.div
+                key={member.id}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: Math.min(i * 0.04, 0.6) }}
               >
                 <PacerCard member={member} />
               </motion.div>
-            )}
-          />
+            ))}
+          </div>
         )}
       </section>
     </div>
