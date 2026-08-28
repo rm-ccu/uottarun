@@ -2,12 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useTranslation } from '../../lib/useTranslation';
-import awards from '../../data/awards.json';
+import { loc } from '../../sanity/locale';
+import type { Award } from '../../sanity/types';
 
-export function AwardsStrip() {
-  const { t } = useTranslation();
-
-  if (awards.length === 0) return null;
+export function AwardsStrip({ awards }: { awards: Award[] }) {
+  const { t, lang } = useTranslation();
+  if (!awards?.length) return null;
 
   return (
     <section className="bg-brand py-10">
@@ -18,7 +18,7 @@ export function AwardsStrip() {
         <div className="flex flex-wrap justify-center gap-3">
           {awards.map((award, i) => (
             <motion.div
-              key={award.id}
+              key={award._id}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -27,7 +27,7 @@ export function AwardsStrip() {
             >
               <span className="text-accent text-sm">🏆</span>
               <span className="text-sm font-medium text-white">
-                {award.title} <span className="text-white/60">— {award.year}</span>
+                {loc(award.title, lang)} <span className="text-white/60">— {award.year}</span>
               </span>
             </motion.div>
           ))}

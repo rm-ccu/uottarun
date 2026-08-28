@@ -47,7 +47,9 @@
     "long_run": "Long run",
     "short_run": "Short run",
     "offseason_title": "On Summer Break",
-    "offseason_body": "Weekly runs are paused for the summer — see you in September!"
+    "offseason_body": "Weekly runs are paused for the summer — see you in September!",
+    "cancelled": "Cancelled",
+    "changed": "Changed"
   },
   "event_card": {
     "distance": "Distance",

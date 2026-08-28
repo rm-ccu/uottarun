@@ -1,22 +1,25 @@
 import { notFound } from 'next/navigation';
-import teamData from '../../../data/team.json';
-import { TeamYearView, type TeamYear } from '../../../components/TeamYearView';
+import { getTeamYears } from '../../../sanity/queries';
+import { TeamYearView } from '../../../components/TeamYearView';
 
-export function generateStaticParams() {
-  return teamData.years.map((y) => ({ year: y.id }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const years = await getTeamYears();
+  return years.map((y) => ({ year: y.slug }));
 }
 
 export default async function TeamYearPage({ params }: { params: Promise<{ year: string }> }) {
   const { year } = await params;
-  const yearData = teamData.years.find((y) => y.id === year);
+  const years = await getTeamYears();
+  const yearData = years.find((y) => y.slug === year);
 
   if (!yearData) notFound();
 
   return (
     <TeamYearView
-      year={yearData as TeamYear}
-      years={teamData.years.map(({ id, label }) => ({ id, label }))}
-      currentYear={teamData.currentYear}
+      year={yearData}
+      years={years.map(({ slug, label }) => ({ slug, label }))}
     />
   );
 }

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from '../lib/useTranslation';
-import teamData from '../data/team.json';
+
+export interface NavYear { slug: string; label: string }
 
 const NAV_LINKS_BEFORE_TEAM = [
   { href: '/', key: 'nav.home' },
@@ -16,9 +17,7 @@ const NAV_LINKS_AFTER_TEAM = [
   { href: '/join', key: 'nav.join' },
 ] as const;
 
-const TEAM_YEARS = teamData.years.map(({ id, label }) => ({ id, label }));
-
-function TeamNavDropdown({ pathname }: { pathname: string }) {
+function TeamNavDropdown({ pathname, years }: { pathname: string; years: NavYear[] }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -48,13 +47,13 @@ function TeamNavDropdown({ pathname }: { pathname: string }) {
 
       {open && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-36 bg-white rounded-xl shadow-lg border border-brand-light overflow-hidden py-1">
-          {TEAM_YEARS.map((y) => (
+          {years.map((y) => (
             <Link
-              key={y.id}
-              href={`/team/${y.id}`}
+              key={y.slug}
+              href={`/team/${y.slug}`}
               onClick={() => setOpen(false)}
               className={`block px-4 py-2 text-sm transition-colors ${
-                pathname === `/team/${y.id}`
+                pathname === `/team/${y.slug}`
                   ? 'text-brand font-semibold bg-brand-light'
                   : 'text-gray-700 hover:bg-surface'
               }`}
@@ -68,7 +67,7 @@ function TeamNavDropdown({ pathname }: { pathname: string }) {
   );
 }
 
-export function Navbar() {
+export function Navbar({ years }: { years: NavYear[] }) {
   const { t, lang, changeLang } = useTranslation();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -93,7 +92,7 @@ export function Navbar() {
                 {t(key)}
               </Link>
             ))}
-            <TeamNavDropdown pathname={pathname} />
+            <TeamNavDropdown pathname={pathname} years={years} />
             {NAV_LINKS_AFTER_TEAM.map(({ href, key }) => (
               <Link
                 key={href}
@@ -150,13 +149,13 @@ export function Navbar() {
                 {t('nav.team')}
               </span>
               <div className="mt-2 pl-4 flex flex-col gap-2">
-                {TEAM_YEARS.map((y) => (
+                {years.map((y) => (
                   <Link
-                    key={y.id}
-                    href={`/team/${y.id}`}
+                    key={y.slug}
+                    href={`/team/${y.slug}`}
                     onClick={() => setOpen(false)}
                     className={`text-sm transition-colors hover:text-white ${
-                      pathname === `/team/${y.id}` ? 'text-white font-semibold' : 'text-white/60'
+                      pathname === `/team/${y.slug}` ? 'text-white font-semibold' : 'text-white/60'
                     }`}
                   >
                     {y.label}

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
-export function Carousel<T extends { id: string }>({
+export function Carousel<T extends { _id: string }>({
   items,
   renderItem,
   cardClassName = 'w-64 sm:w-72',
@@ -49,7 +49,7 @@ export function Carousel<T extends { id: string }>({
         className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-4 px-4 py-1 sm:mx-0 sm:px-0"
       >
         {items.map((item, i) => (
-          <div key={item.id} data-carousel-card className={`shrink-0 snap-start ${cardClassName}`}>
+          <div key={item._id} data-carousel-card className={`shrink-0 snap-start ${cardClassName}`}>
             {renderItem(item, i)}
           </div>
         ))}

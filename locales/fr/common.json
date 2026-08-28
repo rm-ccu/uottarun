@@ -47,7 +47,9 @@
     "long_run": "Longue distance",
     "short_run": "Courte distance",
     "offseason_title": "En pause estivale",
-    "offseason_body": "Les courses hebdomadaires font relâche pour l'été — à bientôt en septembre !"
+    "offseason_body": "Les courses hebdomadaires font relâche pour l'été — à bientôt en septembre !",
+    "cancelled": "Annulé",
+    "changed": "Modifié"
   },
   "event_card": {
     "distance": "Distance",

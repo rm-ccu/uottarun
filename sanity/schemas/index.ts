@@ -1,0 +1,29 @@
+import { localeString, localeText } from './objects/locale';
+import { siteSettings } from './documents/siteSettings';
+import { homePage } from './documents/homePage';
+import { event } from './documents/event';
+import { eventTag } from './documents/eventTag';
+import { weeklyRun } from './documents/weeklyRun';
+import { runException } from './documents/runException';
+import { person } from './documents/person';
+import { execRole } from './documents/execRole';
+import { teamYear } from './documents/teamYear';
+import { collab, collabCategory } from './documents/collab';
+import { award } from './documents/award';
+
+export const schemaTypes = [
+  localeString,
+  localeText,
+  siteSettings,
+  homePage,
+  event,
+  eventTag,
+  weeklyRun,
+  runException,
+  person,
+  execRole,
+  teamYear,
+  collabCategory,
+  collab,
+  award,
+];

@@ -2,12 +2,7 @@
 
 import Link from 'next/link';
 import { useTranslation } from '../lib/useTranslation';
-
-const SOCIAL_LINKS = [
-  { label: 'Discord', url: 'https://discord.com/invite/rEbdhWf2VH' },
-  { label: 'Linktree', url: 'https://linktr.ee/uottarun' },
-  { label: 'Strava', url: 'https://www.strava.com/clubs/1287320/' },
-];
+import type { SiteSettings } from '../sanity/types';
 
 const NAV_LINKS = [
   { href: '/events', key: 'nav.events' },
@@ -16,9 +11,10 @@ const NAV_LINKS = [
   { href: '/join', key: 'nav.join' },
 ] as const;
 
-export function Footer() {
+export function Footer({ settings }: { settings: SiteSettings | null }) {
   const { t } = useTranslation();
   const year = new Date().getFullYear();
+  const socials = (settings?.socials || []).filter(({ url }) => url);
 
   return (
     <footer className="bg-gray-950 text-white">
@@ -28,10 +24,10 @@ export function Footer() {
             <span className="font-heading font-bold text-2xl text-brand">{t('brand_name')}</span>
             <p className="mt-2 text-sm text-gray-400">{t('footer.tagline')}</p>
             <a
-              href="mailto:contact@uoc-uor.ca"
+              href={`mailto:${settings?.email ?? ''}`}
               className="mt-2 block text-sm text-gray-400 hover:text-brand transition-colors"
             >
-              contact@uoc-uor.ca
+              {settings?.email}
             </a>
           </div>
 
@@ -58,7 +54,7 @@ export function Footer() {
               {t('footer.connect')}
             </h3>
             <ul className="space-y-2">
-              {SOCIAL_LINKS.map(({ label, url }) => (
+              {socials.map(({ label, url }) => (
                 <li key={label}>
                   <a
                     href={url}

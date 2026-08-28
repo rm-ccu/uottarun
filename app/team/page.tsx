@@ -1,6 +1,10 @@
 import { redirect } from 'next/navigation';
-import teamData from '../../data/team.json';
+import { getTeamYears } from '../../sanity/queries';
 
-export default function TeamRedirect() {
-  redirect(`/team/${teamData.currentYear}`);
+export const revalidate = 60;
+
+export default async function TeamRedirect() {
+  const years = await getTeamYears();
+  const current = years.find((y) => y.isCurrent) || years[0];
+  redirect(`/team/${current?.slug ?? ''}`);
 }
