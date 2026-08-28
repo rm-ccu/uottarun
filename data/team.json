@@ -106,15 +106,15 @@
         { "id": "2526-p21", "name": "Olivia Eric", "season": "both", "image": "/team/olivia-eric.jpg" },
         { "id": "2526-p22", "name": "Jakob Proos", "season": "both", "image": "/team/jakob-proos.jpg" },
         { "id": "2526-p23", "name": "Alma Sannoufi", "season": "both", "image": "/team/alma-sannoufi.jpg" },
-        { "id": "2526-p24", "name": "Lili Langois", "season": "both", "image": null },
-        { "id": "2526-p25", "name": "Mikayla Kurbel", "season": "winter", "image": null },
+        { "id": "2526-p24", "name": "Lili Langois", "season": "both", "image": "/team/lili-langois.jpg" },
+        { "id": "2526-p25", "name": "Mikayla Kurbel", "season": "winter", "image": "/team/mikayla-kurbel.jpg" },
         { "id": "2526-p26", "name": "Charlotte Hou", "season": "winter", "image": null },
         { "id": "2526-p27", "name": "Duncan Tong", "season": "winter", "image": null },
-        { "id": "2526-p28", "name": "Norah Fearon", "season": "winter", "image": null },
+        { "id": "2526-p28", "name": "Norah Fearon", "season": "winter", "image": "/team/norah-fearon.jpg" },
         { "id": "2526-p29", "name": "Marc Gagnon", "season": "winter", "image": null },
-        { "id": "2526-p30", "name": "Niki Aghmaghani", "season": "winter", "image": null },
+        { "id": "2526-p30", "name": "Niki Aghmaghani", "season": "winter", "image": "/team/niki-aghmaghani.jpg" },
         { "id": "2526-p31", "name": "Gavin Karow", "season": "winter", "image": null },
-        { "id": "2526-p32", "name": "Evan Macaulay", "season": "winter", "image": null },
+        { "id": "2526-p32", "name": "Evan Macaulay", "season": "winter", "image": "/team/evan-macaulay.jpg" },
         { "id": "2526-p33", "name": "Audrey", "season": "fall", "image": "/team/audrey.jpg" }
       ]
     },
@@ -191,7 +191,7 @@
         { "id": "2425-p22", "name": "Suman Wijayanayagam", "season": "winter", "image": "/team/suman-wijayanayagam.jpg" },
         { "id": "2425-p23", "name": "Yuvraj Rathore", "season": "winter", "image": "/team/yuvraj-rathore.jpg" },
         { "id": "2425-p24", "name": "Ali Abrahem", "season": "winter", "image": "/team/ali-abrahem.jpg" },
-        { "id": "2425-p25", "name": "Suzanne Gruz", "season": "winter", "image": null }
+        { "id": "2425-p25", "name": "Suzanne Gruz", "season": "winter", "image": "/team/suzanne-gruz.jpg" }
       ]
     }
   ]
