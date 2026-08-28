@@ -11,41 +11,31 @@
           "id": "2627-1",
           "name": "Sophie LaFlamme",
           "role": "Co-President",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/sophie-laflamme.jpg"
         },
         {
           "id": "2627-2",
           "name": "Rory McCulloch",
           "role": "Co-President",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/rory-mcculloch.jpg"
         },
         {
           "id": "2627-3",
           "name": "Emily Alexander",
           "role": "VP Communications",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/emily-alexander.jpg"
         },
         {
           "id": "2627-4",
           "name": "Renée Treleaven",
           "role": "VP Admin",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/renee-treleaven.jpg"
         },
         {
           "id": "2627-5",
           "name": "Rhys Clee",
           "role": "VP Events",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/rhys-clee.jpg"
         }
       ],
       "pacers": []
@@ -59,75 +49,63 @@
           "id": "2526-1",
           "name": "Ève Tremblay",
           "role": "President",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/eve-tremblay.jpg"
         },
         {
           "id": "2526-2",
           "name": "Sophie LaFlamme",
           "role": "VP Communications",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/sophie-laflamme.jpg"
         },
         {
           "id": "2526-3",
           "name": "Rory McCulloch",
           "role": "VP Admin",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/rory-mcculloch.jpg"
         },
         {
           "id": "2526-4",
           "name": "Rhys Clee",
           "role": "VP Events",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/rhys-clee.jpg"
         },
         {
           "id": "2526-5",
           "name": "Emily Alexander",
           "role": "Junior Comms",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/emily-alexander.jpg"
         },
         {
           "id": "2526-6",
           "name": "Renée Treleaven",
           "role": "Junior Admin",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/renee-treleaven.jpg"
         }
       ],
       "pacers": [
-        { "id": "2526-p1", "name": "Olivia Onesi", "season": "both", "image": null },
-        { "id": "2526-p2", "name": "Adrien Dellah", "season": "both", "image": null },
-        { "id": "2526-p3", "name": "Jade Dupont-Clement", "season": "both", "image": null },
-        { "id": "2526-p4", "name": "Eli Larose", "season": "both", "image": null },
-        { "id": "2526-p5", "name": "Garima Arora", "season": "both", "image": null },
-        { "id": "2526-p6", "name": "Megan Satumba", "season": "fall", "image": null },
-        { "id": "2526-p7", "name": "Rishab Sahai", "season": "both", "image": null },
-        { "id": "2526-p8", "name": "Alfonso Figueroa Martinez", "season": "both", "image": null },
-        { "id": "2526-p9", "name": "Jada Muroff", "season": "both", "image": null },
-        { "id": "2526-p10", "name": "Eli Zima Luste", "season": "both", "image": null },
-        { "id": "2526-p11", "name": "Huy Nguyen", "season": "both", "image": null },
-        { "id": "2526-p12", "name": "Sydney Drew", "season": "both", "image": null },
-        { "id": "2526-p13", "name": "Clara Morrow", "season": "both", "image": null },
-        { "id": "2526-p14", "name": "Sara Parent", "season": "both", "image": null },
-        { "id": "2526-p15", "name": "Anson Moorey", "season": "both", "image": null },
-        { "id": "2526-p16", "name": "Katyanna Copping", "season": "fall", "image": null },
-        { "id": "2526-p17", "name": "Sophie Dippel", "season": "both", "image": null },
-        { "id": "2526-p18", "name": "Laurent Bourget", "season": "both", "image": null },
-        { "id": "2526-p19", "name": "Yuvraj Rathore", "season": "both", "image": null },
-        { "id": "2526-p20", "name": "Micah Schuurman", "season": "both", "image": null },
-        { "id": "2526-p21", "name": "Olivia Eric", "season": "both", "image": null },
-        { "id": "2526-p22", "name": "Jakob Proos", "season": "both", "image": null },
-        { "id": "2526-p23", "name": "Alma Sannoufi", "season": "both", "image": null },
+        { "id": "2526-p1", "name": "Olivia Onesi", "season": "both", "image": "/team/olivia-onesi.jpg" },
+        { "id": "2526-p2", "name": "Adrien Dellah", "season": "both", "image": "/team/adrien-dellah.jpg" },
+        { "id": "2526-p3", "name": "Jade Dupont-Clement", "season": "both", "image": "/team/jade-dupont-clement.jpg" },
+        { "id": "2526-p4", "name": "Eli Larose", "season": "both", "image": "/team/eli-larose.jpg" },
+        { "id": "2526-p5", "name": "Garima Arora", "season": "both", "image": "/team/garima-arora.jpg" },
+        { "id": "2526-p6", "name": "Megan Satumba", "season": "fall", "image": "/team/megan-satumba.jpg" },
+        { "id": "2526-p7", "name": "Rishab Sahai", "season": "both", "image": "/team/rishab-sahai.jpg" },
+        { "id": "2526-p8", "name": "Alfonso Figueroa Martinez", "season": "both", "image": "/team/alfonso-figueroa-martinez.jpg" },
+        { "id": "2526-p9", "name": "Jada Muroff", "season": "both", "image": "/team/jada-muroff.jpg" },
+        { "id": "2526-p10", "name": "Eli Zima Luste", "season": "both", "image": "/team/eli-zima-luste.jpg" },
+        { "id": "2526-p11", "name": "Huy Nguyen", "season": "both", "image": "/team/huy-nguyen.jpg" },
+        { "id": "2526-p12", "name": "Sydney Drew", "season": "both", "image": "/team/sydney-drew.jpg" },
+        { "id": "2526-p13", "name": "Clara Morrow", "season": "both", "image": "/team/clara-morrow.jpg" },
+        { "id": "2526-p14", "name": "Sara Parent", "season": "both", "image": "/team/sara-parent.jpg" },
+        { "id": "2526-p15", "name": "Anson Moorey", "season": "both", "image": "/team/anson-moorey.jpg" },
+        { "id": "2526-p16", "name": "Katyanna Copping", "season": "fall", "image": "/team/katyanna-copping.jpg" },
+        { "id": "2526-p17", "name": "Sophie Dippel", "season": "both", "image": "/team/sophie-dippel.jpg" },
+        { "id": "2526-p18", "name": "Laurent Bourget", "season": "both", "image": "/team/laurent-bourget.jpg" },
+        { "id": "2526-p19", "name": "Yuvraj Rathore", "season": "both", "image": "/team/yuvraj-rathore.jpg" },
+        { "id": "2526-p20", "name": "Micah Schuurman", "season": "both", "image": "/team/micah-schuurman.jpg" },
+        { "id": "2526-p21", "name": "Olivia Eric", "season": "both", "image": "/team/olivia-eric.jpg" },
+        { "id": "2526-p22", "name": "Jakob Proos", "season": "both", "image": "/team/jakob-proos.jpg" },
+        { "id": "2526-p23", "name": "Alma Sannoufi", "season": "both", "image": "/team/alma-sannoufi.jpg" },
         { "id": "2526-p24", "name": "Lili Langois", "season": "both", "image": null },
         { "id": "2526-p25", "name": "Mikayla Kurbel", "season": "winter", "image": null },
         { "id": "2526-p26", "name": "Charlotte Hou", "season": "winter", "image": null },
@@ -136,7 +114,8 @@
         { "id": "2526-p29", "name": "Marc Gagnon", "season": "winter", "image": null },
         { "id": "2526-p30", "name": "Niki Aghmaghani", "season": "winter", "image": null },
         { "id": "2526-p31", "name": "Gavin Karow", "season": "winter", "image": null },
-        { "id": "2526-p32", "name": "Evan Macaulay", "season": "winter", "image": null }
+        { "id": "2526-p32", "name": "Evan Macaulay", "season": "winter", "image": null },
+        { "id": "2526-p33", "name": "Audrey", "season": "fall", "image": "/team/audrey.jpg" }
       ]
     },
     {
@@ -148,83 +127,69 @@
           "id": "2425-1",
           "name": "Aya Al-Ali",
           "role": "Co-President",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/aya-al-ali.jpg"
         },
         {
           "id": "2425-2",
           "name": "Alyssa Primdahl",
           "role": "Co-President",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/alyssa-primdahl.jpg"
         },
         {
           "id": "2425-3",
           "name": "Ève Tremblay",
           "role": "VP Communications",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/eve-tremblay-2425.jpg"
         },
         {
           "id": "2425-4",
           "name": "Talia Ko",
           "role": "VP Events",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/talia-ko.jpg"
         },
         {
           "id": "2425-5",
           "name": "Avery Bird",
           "role": "Admin",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/avery-bird.jpg"
         },
         {
           "id": "2425-6",
           "name": "Sophie LaFlamme",
           "role": "Junior Comms",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/sophie-laflamme-2425.jpg"
         },
         {
           "id": "2425-7",
           "name": "Rory McCulloch",
           "role": "Junior Admin",
-          "bio": "Bio to be filled.",
-          "bioFr": null,
-          "image": null
+          "image": "/team/rory-mcculloch-2425.jpg"
         }
       ],
       "pacers": [
         { "id": "2425-p1", "name": "Juliane Duchesne", "season": "both", "image": null },
-        { "id": "2425-p2", "name": "Adrien Dellah", "season": "both", "image": null },
+        { "id": "2425-p2", "name": "Adrien Dellah", "season": "both", "image": "/team/adrien-dellah.jpg" },
         { "id": "2425-p3", "name": "Libby Lacroix", "season": "both", "image": null },
-        { "id": "2425-p4", "name": "Sydney Drew", "season": "both", "image": null },
+        { "id": "2425-p4", "name": "Sydney Drew", "season": "both", "image": "/team/sydney-drew.jpg" },
         { "id": "2425-p5", "name": "Sedra Al-Khoubbi", "season": "fall", "image": null },
         { "id": "2425-p6", "name": "Cadence Hanck", "season": "fall", "image": null },
-        { "id": "2425-p7", "name": "Jade Dupont-Clément", "season": "both", "image": null },
+        { "id": "2425-p7", "name": "Jade Dupont-Clément", "season": "both", "image": "/team/jade-dupont-clement.jpg" },
         { "id": "2425-p8", "name": "Jayden Craig", "season": "both", "image": null },
         { "id": "2425-p9", "name": "Gustavo Junqueira", "season": "both", "image": null },
-        { "id": "2425-p10", "name": "Micah Schurrman", "season": "both", "image": null },
+        { "id": "2425-p10", "name": "Micah Schurrman", "season": "both", "image": "/team/micah-schuurman.jpg" },
         { "id": "2425-p11", "name": "Claudia Winfield-Hicks", "season": "both", "image": null },
-        { "id": "2425-p12", "name": "Garima Arora", "season": "both", "image": null },
+        { "id": "2425-p12", "name": "Garima Arora", "season": "both", "image": "/team/garima-arora.jpg" },
         { "id": "2425-p13", "name": "Niyol Jha", "season": "both", "image": null },
         { "id": "2425-p14", "name": "Nicolas Guindon", "season": "both", "image": null },
         { "id": "2425-p15", "name": "Veronica Sametz", "season": "both", "image": null },
         { "id": "2425-p16", "name": "Brendo Clark", "season": "both", "image": null },
         { "id": "2425-p17", "name": "Aidan Sachdev", "season": "winter", "image": null },
-        { "id": "2425-p18", "name": "Olivia Eric", "season": "winter", "image": null },
-        { "id": "2425-p19", "name": "Rishab Sahai", "season": "winter", "image": null },
+        { "id": "2425-p18", "name": "Olivia Eric", "season": "winter", "image": "/team/olivia-eric.jpg" },
+        { "id": "2425-p19", "name": "Rishab Sahai", "season": "winter", "image": "/team/rishab-sahai.jpg" },
         { "id": "2425-p20", "name": "Rory O'Connell", "season": "winter", "image": null },
-        { "id": "2425-p21", "name": "Sara Parent", "season": "winter", "image": null },
+        { "id": "2425-p21", "name": "Sara Parent", "season": "winter", "image": "/team/sara-parent.jpg" },
         { "id": "2425-p22", "name": "Suman Wijayanayagam", "season": "winter", "image": null },
-        { "id": "2425-p23", "name": "Yuvraj Rathore", "season": "winter", "image": null },
+        { "id": "2425-p23", "name": "Yuvraj Rathore", "season": "winter", "image": "/team/yuvraj-rathore.jpg" },
         { "id": "2425-p24", "name": "Ali Abrahem", "season": "winter", "image": null },
         { "id": "2425-p25", "name": "Suzanne Gruz", "season": "winter", "image": null }
       ]

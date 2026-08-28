@@ -7,8 +7,6 @@ export interface ExecMember {
   id: string;
   name: string;
   role: string;
-  bio: string;
-  bioFr: string | null;
   image: string | null;
 }
 
@@ -28,11 +26,10 @@ const SEASON_CHIP_STYLES: Record<PacerSeason, string> = {
 };
 
 export function ExecCard({ member }: { member: ExecMember }) {
-  const { t, lang } = useTranslation();
+  const { t } = useTranslation();
   const roleKey = `exec_roles.${member.role}`;
   const translatedRole = t(roleKey);
   const displayRole = translatedRole === roleKey ? member.role : translatedRole;
-  const displayBio = lang === 'fr' && member.bioFr ? member.bioFr : member.bio;
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-brand-light hover:shadow-lg transition-shadow">
@@ -50,7 +47,6 @@ export function ExecCard({ member }: { member: ExecMember }) {
       <div className="p-5">
         <h3 className="font-semibold text-gray-900 text-lg leading-tight">{member.name}</h3>
         <p className="text-sm text-brand font-medium mt-0.5">{displayRole}</p>
-        <p className="text-sm text-gray-500 mt-2 leading-relaxed">{displayBio}</p>
       </div>
     </div>
   );
