@@ -1,6 +1,7 @@
 import type { StructureResolver } from 'sanity/structure';
 
 const SINGLETONS = [
+  { id: 'handbook', title: 'Handbook', icon: '📖' },
   { id: 'siteSettings', title: 'Site Settings', icon: '⚙️' },
   { id: 'homePage', title: 'Home Page', icon: '🏠' },
 ];

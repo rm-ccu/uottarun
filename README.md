@@ -29,29 +29,57 @@ npm run lint      # ESLint
 
 ## Updating Content
 
-All site content lives in JSON files — no React knowledge needed.
+All content is managed in **Sanity**, a browser-based CMS — no code, no local setup, no developer.
 
-| File | What it controls |
+**Studio:** [uoc-uor.ca/studio](https://uoc-uor.ca/studio) (or `localhost:3000/studio` when running locally)
+
+### Read the handbook first
+
+There is a step-by-step guide for editors — cancelling a run, adding events, setting up a new
+exec year, swapping headshots, handing over to the next team.
+
+It lives in **two places**, so it survives losing either one:
+
+1. **A formatted page** — the link is in the `Handbook` document in the Studio sidebar.
+2. **Inside the Studio itself** — open **Handbook**, pinned at the top of the sidebar. Same
+   content, always reachable as long as you can log in.
+
+Non-technical execs should start there and can ignore the rest of this README.
+
+### What is where
+
+| Studio section | Controls |
 |---|---|
-| `data/team.json` | Exec team, alumni, pacers, pacer form URL |
-| `data/events.json` | Weekly run config (time, location, type) + special events |
-| `data/sponsors.json` | Sponsor tiers and logos |
-| `locales/en/common.json` | All English strings |
-| `locales/fr/common.json` | All French strings |
+| `Handbook` | The editor's guide (read-only reference) |
+| `Site Settings` | Contact email, socials, form URLs, brand colours, fonts |
+| `Home Page` | Hero photo, headline, the stats bar |
+| `Weekly Runs` | Tuesday/Saturday runs and their seasonal date ranges |
+| `Cancellations & Changes` | One-off cancellations, time and location changes |
+| `Events` | Races, socials, one-off events |
+| `Event Labels` | The Guru / Coffee / Trail badges |
+| `Team Years` | Each year's exec and pacer roster |
+| `People` | One record per person, with their headshot |
+| `Exec Roles` | Job titles, translated once and reused |
+| `Collabs & Sponsors` | Sponsors, charities, partner clubs |
+| `Awards` | Awards shown on the home page |
 
-### Adding a special event
-Copy `_eventTemplate` in `data/events.json` into the `events` array and fill in the fields.
+Interface text (nav labels, buttons) stays in `locales/{en,fr}/common.json` — it changes rarely
+and does not belong in the CMS. Editable *content* is in Sanity.
 
-### Switching Saturday run type
-Change `"type"` in `data/events.json` under `recurring.saturday` between `"coffee"` and `"guru"`.
+### Notes for developers
 
-### Adding a team member
-- **Exec**: add an object to `exec` in `data/team.json` following the existing format. `bioFr` can be `null` to fall back to the English bio.
-- **Pacer**: add an object to `pacers`. Copy `_pacerTemplate` for the field names.
-- **Alumni**: add an object to `alumni`. The `roles` array supports multiple entries (e.g. held two roles across years).
-
-### Adding photos
-Drop images into `public/team/` and set the `image` field to `/team/filename.jpg`.
+- Schemas live in `sanity/schemas/`; queries in `sanity/queries.ts`
+- Pages are server components fetching from Sanity with 60s revalidation
+- `person` is one document per human, referenced by each `teamYear` with a per-year role, so a
+  returning exec's headshot is uploaded once
+- A weekly run appears only when the next occurrence of its weekday falls inside one of its
+  seasons — see `lib/runSchedule.ts`
+- Translatable fields use `localeString` / `localeText`; read them with `loc()` from
+  `sanity/locale.ts`, which falls back to English
+- Fonts are a fixed list — `next/font` needs build-time literals, so adding one means editing
+  both `lib/fonts.ts` and `FONT_CHOICES` in the `siteSettings` schema
+- `scripts/seed-handbook.mjs` regenerates the in-Studio handbook
+- Environment variables: copy `.env.local.example` to `.env.local`
 
 ---
 

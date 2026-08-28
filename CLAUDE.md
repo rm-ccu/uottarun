@@ -30,6 +30,9 @@ npm run migrate:sanity   # One-time import of data/*.json into Sanity
 
 - Config: `sanity.config.ts`, env in `.env.local` (see `.env.local.example`)
 - Schemas: `/sanity/schemas` — `documents/` and `objects/`
+- Editor handbook lives in the `handbook` singleton (regenerate with
+  `scripts/seed-handbook.mjs`); it is the fallback copy of the formatted
+  version linked in that document's `artifactUrl` field
 - Singletons (`siteSettings`, `homePage`, `weeklyRuns`) are pinned in the Studio
   sidebar and cannot be deleted or duplicated
 - `person` is one document per human, referenced by each `teamYear` with a

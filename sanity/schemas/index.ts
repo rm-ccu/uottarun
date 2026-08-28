@@ -10,6 +10,7 @@ import { execRole } from './documents/execRole';
 import { teamYear } from './documents/teamYear';
 import { collab, collabCategory } from './documents/collab';
 import { award } from './documents/award';
+import { handbook } from './documents/handbook';
 
 export const schemaTypes = [
   localeString,
@@ -26,4 +27,5 @@ export const schemaTypes = [
   collabCategory,
   collab,
   award,
+  handbook,
 ];
