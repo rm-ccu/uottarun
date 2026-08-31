@@ -32,7 +32,10 @@ export function PageHeader({
   width?: string;
   children?: ReactNode;
 }) {
-  const bg = image ? urlFor(image).width(1920).height(720).url() : null;
+  // Fetched larger than the band renders so it stays sharp on retina screens,
+  // and in the same 8:3 shape the band settles at — a mismatch here would make
+  // the browser re-crop on top of the hotspot crop and undo it.
+  const bg = image ? urlFor(image).width(2400).height(900).url() : null;
 
   const body = (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -75,7 +78,7 @@ export function PageHeader({
       <Image src={bg} alt="" fill priority className="object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
-      <div className={`relative z-10 ${width} mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28`}>{body}</div>
+      <div className={`relative z-10 ${width} mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32`}>{body}</div>
     </section>
   );
 }
