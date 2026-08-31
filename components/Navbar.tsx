@@ -135,9 +135,12 @@ export function Navbar({ years }: { years: NavYear[] }) {
   const solid = !overHero || scrolled || open;
 
   return (
+    // The divider is an inset shadow rather than a border so the bar is exactly
+    // h-16 tall. A 1px border made it 65px against the hero's -mt-16 pull, and
+    // that leftover pixel showed as a cream line across the top of the page.
     <header
       className={`on-dark sticky top-0 z-50 transition-colors duration-300 ${
-        solid ? 'bg-brand border-b border-brand-dark/60' : 'bg-transparent border-b border-transparent'
+        solid ? 'bg-brand shadow-[inset_0_-1px_0_0_var(--color-brand-dark)]' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

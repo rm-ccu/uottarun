@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from '../../lib/useTranslation';
+import { PageHeader } from '../../components/PageHeader';
 import { loc } from '../../sanity/locale';
 import type { Faq, FaqCategory } from '../../sanity/types';
 
@@ -92,61 +93,58 @@ export function FaqPageView({ faqs }: { faqs: Faq[] }) {
   const [openId, setOpenId] = useState<string | null>(sections[0]?.items[0]?._id ?? null);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="font-display font-medium text-5xl sm:text-6xl text-gray-950">
-          {t('faq_page.title')}
-        </h1>
-        <p className="mt-4 text-lg text-gray-500">{t('faq_page.sub')}</p>
-      </motion.div>
+    <>
+      <PageHeader title={t('faq_page.title')} sub={t('faq_page.sub')} />
 
-      {faqs.length === 0 ? (
-        <p className="text-gray-400 text-sm">{t('faq_page.empty')}</p>
-      ) : (
-        <div className="space-y-12">
-          {sections.map(({ category, items }, s) => (
-            <motion.section
-              key={category}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: s * 0.07 }}
-            >
-              <h2 className="font-heading font-bold text-2xl sm:text-3xl text-gray-950 mb-3">
-                {t(`faq_page.categories.${category}`)}
-              </h2>
-              <span className="block w-10 h-1 bg-accent rounded-full mb-2" />
-              <div>
-                {items.map((faq) => (
-                  <FaqItem
-                    key={faq._id}
-                    faq={faq}
-                    open={openId === faq._id}
-                    onToggle={() => setOpenId(openId === faq._id ? null : faq._id)}
-                  />
-                ))}
-              </div>
-            </motion.section>
-          ))}
-        </div>
-      )}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {faqs.length === 0 ? (
+          <p className="text-gray-400 text-sm">{t('faq_page.empty')}</p>
+        ) : (
+          <div className="space-y-12">
+            {sections.map(({ category, items }, s) => (
+              <motion.section
+                key={category}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: s * 0.07 }}
+              >
+                <h2 className="font-heading font-bold text-2xl sm:text-3xl text-gray-950 mb-3">
+                  {t(`faq_page.categories.${category}`)}
+                </h2>
+                <span className="block w-10 h-1 bg-accent rounded-full mb-2" />
+                <div>
+                  {items.map((faq) => (
+                    <FaqItem
+                      key={faq._id}
+                      faq={faq}
+                      open={openId === faq._id}
+                      onToggle={() => setOpenId(openId === faq._id ? null : faq._id)}
+                    />
+                  ))}
+                </div>
+              </motion.section>
+            ))}
+          </div>
+        )}
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="mt-16 p-8 bg-brand-light rounded-2xl text-center"
-      >
-        <h2 className="font-heading font-bold text-2xl text-gray-900 mb-2">
-          {t('faq_page.cta_title')}
-        </h2>
-        <p className="text-gray-600 mb-6">{t('faq_page.cta_body')}</p>
-        <Link
-          href="/join"
-          className="inline-block px-8 py-3 bg-brand text-white font-semibold rounded-full hover:bg-brand-dark transition-colors"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="on-dark mt-16 p-10 bg-brand rounded-2xl text-center"
         >
-          {t('faq_page.cta_button')}
-        </Link>
-      </motion.div>
-    </div>
+          <h2 className="font-heading font-bold text-3xl text-white mb-2">
+            {t('faq_page.cta_title')}
+          </h2>
+          <p className="text-white/70 mb-7 max-w-md mx-auto">{t('faq_page.cta_body')}</p>
+          <Link
+            href="/join"
+            className="inline-block px-8 py-3 bg-accent text-gray-950 font-semibold rounded-full hover:bg-accent-dark transition-colors"
+          >
+            {t('faq_page.cta_button')}
+          </Link>
+        </motion.div>
+      </div>
+    </>
   );
 }
