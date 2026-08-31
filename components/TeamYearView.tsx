@@ -37,7 +37,7 @@ export function TeamYearView({
             className={`text-sm font-medium px-4 py-1.5 rounded-full border transition-colors ${
               y.slug === year.slug
                 ? 'bg-brand text-white border-brand'
-                : 'border-brand-light text-gray-600 hover:border-brand hover:text-brand'
+                : 'border-line-strong text-gray-600 hover:border-brand hover:text-brand'
             }`}
           >
             {y.label}
@@ -71,7 +71,7 @@ export function TeamYearView({
         </h2>
         <span className="block w-10 h-1 bg-accent rounded-full mb-8" />
         {(year.pacers || []).length === 0 ? (
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 py-6 px-6 bg-surface rounded-xl border border-brand-light">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 py-6 px-6 bg-surface rounded-xl border border-line">
             <p className="text-gray-500 text-sm flex-1">
               {isCurrent ? t('team_page.pacers_empty') : t('team_page.pacers_archived_empty')}
             </p>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslation } from '../lib/useTranslation';
+import { CARD, CARD_HOVER } from '../lib/ui';
 import { loc } from '../sanity/locale';
 import { urlFor } from '../sanity/image';
 import type { RosterMember } from '../sanity/types';
@@ -33,7 +34,7 @@ export function ExecCard({ member }: { member: RosterMember }) {
   const src = headshot(member, 600);
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-brand-light hover:shadow-lg transition-shadow">
+    <div className={`${CARD} ${CARD_HOVER} overflow-hidden`}>
       <div className="aspect-square relative bg-brand-light">
         {src ? (
           <Image src={src} alt={member.name} fill className="object-cover" />
@@ -55,7 +56,7 @@ export function PacerCard({ member }: { member: RosterMember }) {
   const season = member.season || 'both';
 
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-brand-light hover:shadow-md transition-shadow">
+    <div className={`${CARD} ${CARD_HOVER} overflow-hidden`}>
       <div className="aspect-square relative bg-brand-light">
         {src ? (
           <Image src={src} alt={member.name} fill className="object-cover" />

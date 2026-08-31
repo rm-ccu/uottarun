@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useTranslation } from '../lib/useTranslation';
 import { Carousel } from './Carousel';
+import { CARD, CARD_HOVER } from '../lib/ui';
 import { loc } from '../sanity/locale';
 import { urlFor } from '../sanity/image';
 import type { Collab } from '../sanity/types';
@@ -13,8 +14,8 @@ function CollabCard({ collab, emphasized }: { collab: Collab; emphasized: boolea
   const { lang } = useTranslation();
   const displayName = lang === 'fr' && collab.nameFr ? collab.nameFr : collab.name;
   const baseClasses = emphasized
-    ? 'block h-full border border-accent-dark/30 bg-accent/10 rounded-2xl p-8 text-center hover:border-accent-dark hover:shadow-md transition-all'
-    : 'block h-full border border-brand-light rounded-2xl p-8 text-center hover:border-brand hover:shadow-md transition-all';
+    ? `block h-full border border-accent-dark/30 bg-accent/10 rounded-2xl p-8 text-center ${CARD_HOVER}`
+    : `block h-full ${CARD} ${CARD_HOVER} p-8 text-center`;
 
   const content = (
     <>

@@ -6,9 +6,12 @@
     "team": "Team",
     "collabs": "Collabs",
     "faq": "FAQ",
-    "join": "Join"
+    "join": "Join",
+    "switch_lang": "Switch to French",
+    "toggle_menu": "Toggle menu"
   },
   "hero": {
+    "eyebrow": "University of Ottawa",
     "headline_pre": "Run",
     "headline_em": "Ottawa.",
     "headline_post": "",
@@ -117,5 +120,9 @@
     "links": "Links",
     "connect": "Connect",
     "rights": "All rights reserved."
+  },
+  "a11y": {
+    "scroll_left": "Scroll left",
+    "scroll_right": "Scroll right"
   }
 }

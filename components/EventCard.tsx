@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { useTranslation } from '../lib/useTranslation';
+import { monthAbbr } from '../lib/formatDate';
+import { CARD, CARD_HOVER } from '../lib/ui';
 import { loc } from '../sanity/locale';
 import { urlFor } from '../sanity/image';
 import type { ClubEvent } from '../sanity/types';
@@ -21,14 +23,34 @@ export function TagBadge({ label, color }: { label: string; color: string }) {
   );
 }
 
+export function DateBadge({ month, day, muted = false }: { month: string; day: number; muted?: boolean }) {
+  // French abbreviates to five characters ("JUILL", "SEPT") where English uses
+  // three, which overflows the badge at the default size.
+  const tight = month.length > 4;
+
+  return (
+    <div className="w-14 shrink-0 text-center">
+      <div
+        className={`${muted ? 'bg-gray-400' : 'bg-brand'} text-white rounded-t-xl py-1 font-bold ${
+          tight ? 'text-[10px] tracking-normal' : 'text-xs tracking-wide'
+        }`}
+      >
+        {month}
+      </div>
+      <div className="border border-t-0 border-line rounded-b-xl py-2 text-2xl font-bold text-gray-900 tabular-nums">
+        {day}
+      </div>
+    </div>
+  );
+}
+
 export function EventCard({ event, instagramFallback }: { event: ClubEvent; instagramFallback?: string }) {
   const { t, lang } = useTranslation();
   const date = new Date(event.date + 'T00:00:00');
-  const month = date.toLocaleString('en-CA', { month: 'short' }).toUpperCase();
   const link = event.instagramUrl || instagramFallback;
 
   return (
-    <div className="bg-white border border-brand-light rounded-2xl shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+    <div className={`${CARD} ${CARD_HOVER} overflow-hidden`}>
       {event.image && (
         <div className="relative w-full h-44">
           <Image
@@ -40,12 +62,7 @@ export function EventCard({ event, instagramFallback }: { event: ClubEvent; inst
         </div>
       )}
       <div className="p-6 flex gap-5">
-        <div className="shrink-0 w-14 text-center">
-          <div className="bg-brand text-white rounded-t-lg py-1 text-xs font-bold tracking-wide">{month}</div>
-          <div className="border border-t-0 border-gray-200 rounded-b-lg py-2 text-2xl font-bold text-gray-900">
-            {date.getDate()}
-          </div>
-        </div>
+        <DateBadge month={monthAbbr(event.date, lang)} day={date.getDate()} />
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">

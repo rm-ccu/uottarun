@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useTranslation } from '../lib/useTranslation';
 
 export function Carousel<T extends { _id: string }>({
   items,
@@ -11,6 +12,7 @@ export function Carousel<T extends { _id: string }>({
   renderItem: (item: T, index: number) => ReactNode;
   cardClassName?: string;
 }) {
+  const { t } = useTranslation();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -59,10 +61,10 @@ export function Carousel<T extends { _id: string }>({
         <>
           <button
             type="button"
-            aria-label="Scroll left"
+            aria-label={t('a11y.scroll_left')}
             onClick={() => scrollByCard(-1)}
             disabled={!canScrollLeft}
-            className="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center rounded-full bg-white border border-brand-light shadow-md hover:border-brand transition-all cursor-pointer disabled:opacity-0 disabled:pointer-events-none"
+            className="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center rounded-full bg-white border border-line shadow-sm hover:border-brand hover:text-brand transition-all cursor-pointer disabled:opacity-0 disabled:pointer-events-none"
           >
             <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -70,10 +72,10 @@ export function Carousel<T extends { _id: string }>({
           </button>
           <button
             type="button"
-            aria-label="Scroll right"
+            aria-label={t('a11y.scroll_right')}
             onClick={() => scrollByCard(1)}
             disabled={!canScrollRight}
-            className="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center rounded-full bg-white border border-brand-light shadow-md hover:border-brand transition-all cursor-pointer disabled:opacity-0 disabled:pointer-events-none"
+            className="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center rounded-full bg-white border border-line shadow-sm hover:border-brand hover:text-brand transition-all cursor-pointer disabled:opacity-0 disabled:pointer-events-none"
           >
             <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
