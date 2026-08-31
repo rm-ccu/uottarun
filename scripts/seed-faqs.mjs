@@ -27,6 +27,7 @@ const client = createClient({
 const INSTAGRAM = 'https://www.instagram.com/uottarun/';
 const STRAVA = 'https://www.strava.com/clubs/1287320/';
 const DISCORD = 'https://discord.com/invite/rEbdhWf2VH';
+const MEMBER_FORM = 'https://forms.gle/3biUb65D5A6UXwmE7';
 
 const FAQS = [
   {
@@ -63,9 +64,10 @@ const FAQS = [
     category: 'runs',
     q: ['Do I need to sign up before a run?', "Dois-je m'inscrire avant une course ?"],
     a: [
-      'Nope — just show up at the meeting spot a few minutes early and say hi. Filling out our membership form helps us keep you in the loop, but you never need to register for an individual run.',
-      "Non — présentez-vous simplement au point de rencontre quelques minutes à l'avance et venez nous dire bonjour. Remplir notre formulaire d'adhésion nous aide à vous tenir informé, mais vous n'avez jamais à vous inscrire à une course en particulier.",
+      "Not for each individual run — just show up at the meeting spot a few minutes early and say hi. You should, though, fill out our membership form once before your first run: it includes the liability waiver that UOSU requires every member to sign. We're a volunteer crew, so realistically we aren't checking names at the start line — we don't have the bandwidth to chase everyone down. It isn't our rule or the school being difficult, it's just what's required, so whether you've signed it is ultimately your call.",
+      "Pas pour chaque course — présentez-vous simplement au point de rencontre quelques minutes à l'avance et venez nous dire bonjour. Vous devriez toutefois remplir notre formulaire d'adhésion une fois avant votre première course : il contient la décharge de responsabilité que l'UOSU exige de chaque membre. Nous sommes une équipe de bénévoles, alors en pratique nous ne vérifions pas les noms au point de départ — nous n'avons pas les moyens de faire le suivi de tout le monde. Ce n'est ni notre règle ni un caprice de l'université, c'est simplement ce qui est exigé : au bout du compte, c'est à vous de décider.",
     ],
+    link: [['Fill out the membership form', "Remplir le formulaire d'adhésion"], MEMBER_FORM],
   },
   {
     slug: 'too-slow',
@@ -153,8 +155,8 @@ const FAQS = [
     category: 'safety',
     q: ['What do I do in case of an emergency?', "Que faire en cas d'urgence ?"],
     a: [
-      "If you ever feel unsafe, uncomfortable or you know of someone that feels like such, immediately inform a pacer. Our executives and pacers are all selected not only based on running acumen but also good vibes and knowledge of Ottawa. In the case that you don't feel comfortable contacting a pacer, speak to either an executive as soon as you can or call VCRT/emergency services. If you are injured and need medical assistance, do a quick judgement call, if you are within 5-10 minutes from campus, call VCRT and then 911, VCRT can call 911 on your behalf if the situation calls for it. Of course though, follow your instincts and be safe!",
-      "Si vous vous sentez en danger ou mal à l'aise, ou si vous savez que quelqu'un d'autre l'est, informez immédiatement un lièvre. Nos exécutifs et nos lièvres sont choisis non seulement pour leurs aptitudes en course, mais aussi pour leur bonne attitude et leur connaissance d'Ottawa. Si vous n'êtes pas à l'aise d'en parler à un lièvre, adressez-vous à un membre de l'exécutif dès que possible, ou appelez le VCRT ou les services d'urgence. Si vous êtes blessé et avez besoin d'aide médicale, évaluez rapidement la situation : si vous êtes à 5 à 10 minutes du campus, appelez le VCRT, puis le 911 — le VCRT peut appeler le 911 pour vous si la situation l'exige. Surtout, suivez votre instinct et soyez prudent !",
+      "If you ever feel unsafe, uncomfortable or you know of someone that feels like such, immediately inform a pacer. Our executives and pacers are all selected not only based on running acumen but also good vibes and knowledge of Ottawa. In the case that you don't feel comfortable contacting a pacer, speak to either an executive as soon as you can or call VCRT (613-562-5411)/emergency services. If you are injured and need medical assistance, do a quick judgement call, if you are within 5-10 minutes from campus, call VCRT at 613-562-5411 and then 911, VCRT can call 911 on your behalf if the situation calls for it. Of course though, follow your instincts and be safe!",
+      "Si vous vous sentez en danger ou mal à l'aise, ou si vous savez que quelqu'un d'autre l'est, informez immédiatement un lièvre. Nos exécutifs et nos lièvres sont choisis non seulement pour leurs aptitudes en course, mais aussi pour leur bonne attitude et leur connaissance d'Ottawa. Si vous n'êtes pas à l'aise d'en parler à un lièvre, adressez-vous à un membre de l'exécutif dès que possible, ou appelez le VCRT (613-562-5411) ou les services d'urgence. Si vous êtes blessé et avez besoin d'aide médicale, évaluez rapidement la situation : si vous êtes à 5 à 10 minutes du campus, appelez le VCRT au 613-562-5411, puis le 911 — le VCRT peut appeler le 911 pour vous si la situation l'exige. Surtout, suivez votre instinct et soyez prudent !",
     ],
   },
   {
