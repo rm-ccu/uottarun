@@ -6,20 +6,28 @@ import { CollabCarousel } from '../../components/CollabCarousel';
 import { PageHeader } from '../../components/PageHeader';
 import { loc } from '../../sanity/locale';
 import type { CollabCategory } from '../../sanity/types';
+import type { Image as SanityImage } from 'sanity';
 
 export function CollabsPageView({
   categories,
   email,
+  headerImage,
 }: {
   categories: CollabCategory[];
   email?: string;
+  headerImage?: SanityImage | null;
 }) {
   const { t, lang } = useTranslation();
   const populated = (categories || []).filter((c) => c.items?.length);
 
   return (
     <>
-      <PageHeader title={t('collabs_page.title')} sub={t('collabs_page.sub')} width="max-w-6xl" />
+      <PageHeader
+        title={t('collabs_page.title')}
+        sub={t('collabs_page.sub')}
+        image={headerImage}
+        width="max-w-6xl"
+      />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="space-y-14 mb-20">

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getTeamYears } from '../../../sanity/queries';
+import { getTeamYears, getPageHeaders } from '../../../sanity/queries';
 import { TeamYearView } from '../../../components/TeamYearView';
 
 export const revalidate = 60;
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 
 export default async function TeamYearPage({ params }: { params: Promise<{ year: string }> }) {
   const { year } = await params;
-  const years = await getTeamYears();
+  const [years, headers] = await Promise.all([getTeamYears(), getPageHeaders()]);
   const yearData = years.find((y) => y.slug === year);
 
   if (!yearData) notFound();
@@ -20,6 +20,7 @@ export default async function TeamYearPage({ params }: { params: Promise<{ year:
     <TeamYearView
       year={yearData}
       years={years.map(({ slug, label }) => ({ slug, label }))}
+      headerImage={yearData.headerImage ?? headers?.team}
     />
   );
 }

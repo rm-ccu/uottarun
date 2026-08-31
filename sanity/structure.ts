@@ -4,6 +4,7 @@ const SINGLETONS = [
   { id: 'handbook', title: 'Handbook', icon: '📖' },
   { id: 'siteSettings', title: 'Site Settings', icon: '⚙️' },
   { id: 'homePage', title: 'Home Page', icon: '🏠' },
+  { id: 'pageHeaders', title: 'Page Headers', icon: '🖼️' },
 ];
 
 const COLLECTIONS: Array<[string, string]> = [

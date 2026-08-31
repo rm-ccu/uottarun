@@ -1,6 +1,7 @@
 import { localeString, localeText } from './objects/locale';
 import { siteSettings } from './documents/siteSettings';
 import { homePage } from './documents/homePage';
+import { pageHeaders } from './documents/pageHeaders';
 import { event } from './documents/event';
 import { eventTag } from './documents/eventTag';
 import { weeklyRun } from './documents/weeklyRun';
@@ -18,6 +19,7 @@ export const schemaTypes = [
   localeText,
   siteSettings,
   homePage,
+  pageHeaders,
   event,
   eventTag,
   weeklyRun,

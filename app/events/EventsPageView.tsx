@@ -7,21 +7,24 @@ import { PageHeader } from '../../components/PageHeader';
 import { WeeklyRunsSection } from '../../components/sections/WeeklyRunsSection';
 import type { ResolvedRun } from '../../lib/runSchedule';
 import type { ClubEvent } from '../../sanity/types';
+import type { Image as SanityImage } from 'sanity';
 
 export function EventsPageView({
   runs,
   events,
   instagramFallback,
+  headerImage,
 }: {
   runs: ResolvedRun[];
   events: ClubEvent[];
   instagramFallback?: string;
+  headerImage?: SanityImage | null;
 }) {
   const { t } = useTranslation();
 
   return (
     <>
-      <PageHeader title={t('events_page.title')} sub={t('events_page.sub')} />
+      <PageHeader title={t('events_page.title')} sub={t('events_page.sub')} image={headerImage} />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <WeeklyRunsSection runs={runs} />
