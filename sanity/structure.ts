@@ -17,6 +17,7 @@ const COLLECTIONS: Array<[string, string]> = [
   ['collab', 'Collabs & Sponsors'],
   ['collabCategory', 'Collab Categories'],
   ['award', 'Awards'],
+  ['faq', 'FAQ'],
 ];
 
 export const structure: StructureResolver = (S) =>

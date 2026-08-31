@@ -38,6 +38,11 @@ npm run migrate:sanity   # One-time import of data/*.json into Sanity
 - `person` is one document per human, referenced by each `teamYear` with a
   per-year role — so a returning exec's headshot is uploaded once
 - Event labels (Guru/Coffee/Trail) are `eventTag` documents, not free text
+- FAQ entries are `faq` documents (seed with `npm run seed:faqs`); their section
+  headings are i18next keys (`faq_page.categories.*`), so a new category value
+  in the schema needs a matching translation
+- Document IDs must not contain a dot — the public read grant only covers
+  root-path IDs, so a `type.slug` id is invisible to the site's anonymous client
 - Images use hotspot cropping; always render through `urlFor()` in `sanity/image.ts`
 
 ## Localization
@@ -91,6 +96,7 @@ npm run migrate:sanity   # One-time import of data/*.json into Sanity
 | `/team` | Exec + pacer grid with headshots and roles |
 | `/sponsors` | Tier breakdown, current sponsors, contact CTA |
 | `/join` | Google Form embed + Discord/Linktree links |
+| `/faq` | Accordion of `faq` documents, grouped into sections |
 
 ## External Links
 

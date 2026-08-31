@@ -14,6 +14,7 @@ const NAV_LINKS_BEFORE_TEAM = [
 
 const NAV_LINKS_AFTER_TEAM = [
   { href: '/collabs', key: 'nav.collabs' },
+  { href: '/faq', key: 'nav.faq' },
   { href: '/join', key: 'nav.join' },
 ] as const;
 

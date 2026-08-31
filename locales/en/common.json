@@ -5,6 +5,7 @@
     "events": "Events",
     "team": "Team",
     "collabs": "Collabs",
+    "faq": "FAQ",
     "join": "Join"
   },
   "hero": {
@@ -88,6 +89,20 @@
     "cta_title": "Become a Sponsor",
     "cta_body": "Help us grow Ottawa's running community. We'd love to discuss partnership opportunities with you.",
     "cta_button": "Contact Us"
+  },
+  "faq_page": {
+    "title": "FAQ",
+    "sub": "Everything you need to know before your first run with us.",
+    "empty": "Questions are on the way — check back soon!",
+    "categories": {
+      "runs": "The Runs",
+      "logistics": "What to Bring & Wear",
+      "safety": "Safety",
+      "involved": "Getting Involved"
+    },
+    "cta_title": "Still have a question?",
+    "cta_body": "Ask us on Instagram, or just show up to a run — we're friendly.",
+    "cta_button": "Join the Club"
   },
   "join_page": {
     "title": "Join uOttaRun",
