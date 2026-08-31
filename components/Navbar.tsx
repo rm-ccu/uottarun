@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from '../lib/useTranslation';
@@ -15,12 +16,11 @@ const NAV_LINKS_BEFORE_TEAM = [
 const NAV_LINKS_AFTER_TEAM = [
   { href: '/collabs', key: 'nav.collabs' },
   { href: '/faq', key: 'nav.faq' },
-  { href: '/join', key: 'nav.join' },
 ] as const;
 
 const linkClasses = (active: boolean) =>
-  `text-sm font-medium transition-colors hover:text-white ${
-    active ? 'text-white underline underline-offset-4 decoration-accent decoration-2' : 'text-white/70'
+  `px-3 py-2 rounded-full text-sm font-medium transition-colors ${
+    active ? 'text-white bg-white/15' : 'text-white/75 hover:text-white hover:bg-white/10'
   }`;
 
 function TeamNavDropdown({ pathname, years }: { pathname: string; years: NavYear[] }) {
@@ -140,16 +140,21 @@ export function Navbar({ years }: { years: NavYear[] }) {
     // that leftover pixel showed as a cream line across the top of the page.
     <header
       className={`on-dark sticky top-0 z-50 transition-colors duration-300 ${
-        solid ? 'bg-brand shadow-[inset_0_-1px_0_0_var(--color-brand-dark)]' : 'bg-transparent'
+        solid
+          ? 'bg-brand/95 backdrop-blur-md shadow-[inset_0_-1px_0_0_var(--color-brand-dark)]'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-heading font-bold text-2xl tracking-tight text-white">
-            {t('brand_name')}
+          <Link href="/" className="flex items-center gap-2.5 rounded-full">
+            <Image src="/logo.png" alt="" width={36} height={36} className="object-contain" priority />
+            <span className="font-heading font-bold text-2xl tracking-tight text-white">
+              {t('brand_name')}
+            </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS_BEFORE_TEAM.map(({ href, key }) => (
               <Link key={href} href={href} className={linkClasses(pathname === href)}>
                 {t(key)}
@@ -164,6 +169,12 @@ export function Navbar({ years }: { years: NavYear[] }) {
           </nav>
 
           <div className="flex items-center gap-3">
+            <Link
+              href="/join"
+              className="hidden md:inline-block px-5 py-2 bg-accent text-gray-950 text-sm font-semibold rounded-full hover:bg-accent-dark transition-colors"
+            >
+              {t('nav.join')}
+            </Link>
             <button
               onClick={() => changeLang(lang === 'en' ? 'fr' : 'en')}
               aria-label={t('nav.switch_lang')}
@@ -236,6 +247,14 @@ export function Navbar({ years }: { years: NavYear[] }) {
                 {t(key)}
               </Link>
             ))}
+
+            <Link
+              href="/join"
+              onClick={() => setOpen(false)}
+              className="mt-1 px-5 py-2.5 bg-accent text-gray-950 text-sm font-semibold rounded-full text-center"
+            >
+              {t('nav.join')}
+            </Link>
           </nav>
         )}
       </div>
