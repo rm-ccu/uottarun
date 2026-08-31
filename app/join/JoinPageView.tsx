@@ -26,7 +26,7 @@ export function JoinPageView({ settings }: { settings: SiteSettings | null }) {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1 }}
-          className="lg:col-span-3 bg-brand-light border border-brand-light rounded-2xl p-10 flex flex-col items-center justify-center text-center"
+          className="lg:col-span-3 bg-brand-light rounded-2xl p-10 flex flex-col items-center justify-center text-center"
         >
           <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center mb-6">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ export function JoinPageView({ settings }: { settings: SiteSettings | null }) {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 border border-brand-light rounded-xl hover:border-brand hover:shadow-sm transition-all group"
+                className="flex items-center justify-between p-4 border border-line rounded-xl hover:border-brand hover:bg-surface transition-colors group"
               >
                 <span className="font-medium text-gray-800 group-hover:text-brand transition-colors">
                   {label}
@@ -74,7 +74,7 @@ export function JoinPageView({ settings }: { settings: SiteSettings | null }) {
             ))}
           </div>
 
-          <div className="p-4 bg-surface rounded-xl border border-brand-light">
+          <div className="p-4 bg-surface rounded-xl border border-line">
             <p className="text-sm text-gray-500">
               {t('join_page.email_label')}:{' '}
               <a href={`mailto:${settings?.email ?? ''}`} className="text-brand hover:underline font-medium">

@@ -6,9 +6,12 @@
     "team": "Équipe",
     "collabs": "Collaborations",
     "faq": "FAQ",
-    "join": "Rejoindre"
+    "join": "Rejoindre",
+    "switch_lang": "Passer à l'anglais",
+    "toggle_menu": "Ouvrir le menu"
   },
   "hero": {
+    "eyebrow": "Université d'Ottawa",
     "headline_pre": "Courons",
     "headline_em": "Ottawa.",
     "headline_post": "",
@@ -117,5 +120,9 @@
     "links": "Liens",
     "connect": "Connecter",
     "rights": "Tous droits réservés."
+  },
+  "a11y": {
+    "scroll_left": "Défiler vers la gauche",
+    "scroll_right": "Défiler vers la droite"
   }
 }

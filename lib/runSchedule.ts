@@ -28,7 +28,6 @@ export interface ResolvedRun {
   title: LocaleStr;
   day: string;
   dateISO: string;
-  month: string;
   dayOfMonth: number;
   warmup?: string;
   time?: string;
@@ -72,7 +71,6 @@ export function resolveRuns(
       title: run.title,
       day: run.day,
       dateISO: iso,
-      month: next.toLocaleString('en-CA', { month: 'short' }).toUpperCase(),
       dayOfMonth: next.getDate(),
       warmup: season.warmup,
       time: exc?.status === 'time' && exc.newTime ? exc.newTime : season.run,

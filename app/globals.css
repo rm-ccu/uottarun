@@ -16,6 +16,12 @@
   --color-background: #FFFFF4;
   --color-surface: #F5F5E8;
 
+  /* Hairlines. The old borders used brand-light, a cool blue that muddied
+     every card sitting on the warm cream ground — these are the same value
+     family as the background instead. */
+  --color-line: #E8E4D2;
+  --color-line-strong: #D6D1B9;
+
   /* Fonts — variables injected by next/font/google in layout.tsx */
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
@@ -24,6 +30,27 @@
 
 html {
   scroll-behavior: smooth;
+  /* The cream ground is the brand, not a default. Declaring the scheme stops
+     Chrome's auto-dark and OS force-dark from inverting the palette for us. */
+  color-scheme: light;
+}
+
+body {
+  background-color: #FFFFF4;
+  color: #111111;
+}
+
+/* Keyboard focus, site-wide. `:focus-visible` means pointer users never see
+   it, so this costs nothing visually and makes the site navigable by tab. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* The teal ring vanishes against the navbar and footer — go accent there. */
+.on-dark :focus-visible {
+  outline-color: var(--color-accent);
 }
 
 .scrollbar-hide {
@@ -35,7 +62,8 @@ html {
   display: none;
 }
 
-body {
-  background-color: #FFFFF4;
-  color: #111111;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

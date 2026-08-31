@@ -1,22 +1,11 @@
 'use client';
 
 import { useTranslation } from '../../lib/useTranslation';
+import { monthAbbr } from '../../lib/formatDate';
+import { CARD, CARD_HOVER } from '../../lib/ui';
 import { loc } from '../../sanity/locale';
-import { TagBadge } from '../EventCard';
+import { DateBadge, TagBadge } from '../EventCard';
 import type { ResolvedRun } from '../../lib/runSchedule';
-
-function DateBadge({ month, day, muted }: { month: string; day: number; muted: boolean }) {
-  return (
-    <div className="w-14 shrink-0 text-center">
-      <div className={`${muted ? 'bg-gray-400' : 'bg-brand'} text-white rounded-t-lg py-1 text-xs font-bold tracking-wide`}>
-        {month}
-      </div>
-      <div className="border border-t-0 border-gray-200 rounded-b-lg py-2 text-2xl font-bold text-gray-900">
-        {day}
-      </div>
-    </div>
-  );
-}
 
 function RunCard({ run }: { run: ResolvedRun }) {
   const { t, lang } = useTranslation();
@@ -25,12 +14,8 @@ function RunCard({ run }: { run: ResolvedRun }) {
   const note = loc(run.note, lang);
 
   return (
-    <div
-      className={`bg-white border rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow flex gap-5 ${
-        cancelled ? 'border-gray-200 opacity-75' : 'border-brand-light'
-      }`}
-    >
-      <DateBadge month={run.month} day={run.dayOfMonth} muted={cancelled} />
+    <div className={`${CARD} ${cancelled ? 'opacity-75' : CARD_HOVER} p-6 flex gap-5`}>
+      <DateBadge month={monthAbbr(run.dateISO, lang)} day={run.dayOfMonth} muted={cancelled} />
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <h3 className={`font-semibold text-lg ${cancelled ? 'text-gray-500 line-through' : 'text-gray-900'}`}>
@@ -101,7 +86,7 @@ export function WeeklyRunsSection({ runs }: { runs: ResolvedRun[] }) {
       <span className="block w-10 h-1 bg-accent rounded-full mb-6" />
 
       {runs.length === 0 ? (
-        <div className="bg-brand-light border border-brand-light rounded-2xl p-8 text-center">
+        <div className="bg-brand-light rounded-2xl p-8 text-center">
           <p className="font-semibold text-gray-900 text-lg">{t('weekly_runs.offseason_title')}</p>
           <p className="text-sm text-gray-600 mt-1">{t('weekly_runs.offseason_body')}</p>
         </div>

@@ -18,15 +18,15 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
   const socials = (settings?.socials || []).filter(({ url }) => url);
 
   return (
-    <footer className="bg-gray-950 text-white">
+    <footer className="on-dark bg-gray-950 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <span className="font-heading font-bold text-2xl text-brand">{t('brand_name')}</span>
+            <span className="font-heading font-bold text-2xl text-white">{t('brand_name')}</span>
             <p className="mt-2 text-sm text-gray-400">{t('footer.tagline')}</p>
             <a
               href={`mailto:${settings?.email ?? ''}`}
-              className="mt-2 block text-sm text-gray-400 hover:text-brand transition-colors"
+              className="mt-2 block text-sm text-gray-400 hover:text-accent transition-colors"
             >
               {settings?.email}
             </a>
@@ -61,7 +61,7 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-400 hover:text-brand transition-colors"
+                    className="text-sm text-gray-400 hover:text-accent transition-colors"
                   >
                     {label} ↗
                   </a>

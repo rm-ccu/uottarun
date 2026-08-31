@@ -20,7 +20,7 @@ function FaqItem({ faq, open, onToggle }: { faq: Faq; open: boolean; onToggle: (
   const label = loc(faq.linkLabel, lang);
 
   return (
-    <div className="border-b border-brand-light last:border-b-0">
+    <div className="border-b border-line last:border-b-0">
       <h3>
         <button
           onClick={onToggle}

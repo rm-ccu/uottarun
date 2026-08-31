@@ -48,7 +48,7 @@ export function CollabsPageView({
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-brand-light border border-brand-light rounded-2xl p-10 text-center"
+        className="bg-brand-light rounded-2xl p-10 text-center"
       >
         <h2 className="font-heading font-bold text-3xl text-gray-900 mb-3">
           {t('collabs_page.cta_title')}

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from '../lib/useTranslation';
 
 export interface NavYear { slug: string; label: string }
@@ -18,36 +18,65 @@ const NAV_LINKS_AFTER_TEAM = [
   { href: '/join', key: 'nav.join' },
 ] as const;
 
+const linkClasses = (active: boolean) =>
+  `text-sm font-medium transition-colors hover:text-white ${
+    active ? 'text-white underline underline-offset-4 decoration-accent decoration-2' : 'text-white/70'
+  }`;
+
 function TeamNavDropdown({ pathname, years }: { pathname: string; years: NavYear[] }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const isActive = pathname.startsWith('/team');
 
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     }
+    // Escape returns focus to the trigger, so a keyboard user isn't dropped
+    // back at the top of the document after dismissing the menu.
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape' && open) {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    }
     document.addEventListener('mousedown', onClickOutside);
-    return () => document.removeEventListener('mousedown', onClickOutside);
-  }, []);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onClickOutside);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
 
   return (
     <div ref={ref} className="relative">
       <button
+        ref={buttonRef}
         onClick={() => setOpen((o) => !o)}
-        className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-white cursor-pointer ${
-          isActive ? 'text-white underline underline-offset-4 decoration-accent' : 'text-white/70'
-        }`}
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-controls="team-year-menu"
+        className={`flex items-center gap-1 cursor-pointer ${linkClasses(isActive)}`}
       >
         {t('nav.team')}
-        <svg className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
 
       {open && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-36 bg-white rounded-xl shadow-lg border border-brand-light overflow-hidden py-1">
+        <div
+          id="team-year-menu"
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-36 bg-white rounded-2xl shadow-lg ring-1 ring-black/5 overflow-hidden py-1"
+        >
           {years.map((y) => (
             <Link
               key={y.slug}
@@ -71,10 +100,46 @@ function TeamNavDropdown({ pathname, years }: { pathname: string; years: NavYear
 export function Navbar({ years }: { years: NavYear[] }) {
   const { t, lang, changeLang } = useTranslation();
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  // The menu remembers which route it was opened on, so any navigation — a tap
+  // on a link, the wordmark, or the browser back button — closes it without an
+  // effect having to reach in and reset state.
+  const [menu, setMenu] = useState({ open: false, path: pathname });
+  const open = menu.open && menu.path === pathname;
+  const setOpen = useCallback(
+    (next: boolean) => setMenu({ open: next, path: pathname }),
+    [pathname]
+  );
+  const [scrolled, setScrolled] = useState(false);
+
+  // Only the home page has a full-bleed photo behind the bar to sit on.
+  const overHero = pathname === '/';
+
+  useEffect(() => {
+    if (!overHero) return;
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [overHero]);
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false);
+    }
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [setOpen]);
+
+  // An open mobile menu always needs a solid ground, or its links land on top
+  // of the hero photo.
+  const solid = !overHero || scrolled || open;
 
   return (
-    <header className="sticky top-0 z-50 bg-brand border-b border-brand-dark/60">
+    <header
+      className={`on-dark sticky top-0 z-50 transition-colors duration-300 ${
+        solid ? 'bg-brand border-b border-brand-dark/60' : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="font-heading font-bold text-2xl tracking-tight text-white">
@@ -83,25 +148,13 @@ export function Navbar({ years }: { years: NavYear[] }) {
 
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS_BEFORE_TEAM.map(({ href, key }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`text-sm font-medium transition-colors hover:text-white ${
-                  pathname === href ? 'text-white underline underline-offset-4 decoration-accent' : 'text-white/70'
-                }`}
-              >
+              <Link key={href} href={href} className={linkClasses(pathname === href)}>
                 {t(key)}
               </Link>
             ))}
             <TeamNavDropdown pathname={pathname} years={years} />
             {NAV_LINKS_AFTER_TEAM.map(({ href, key }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`text-sm font-medium transition-colors hover:text-white ${
-                  pathname === href ? 'text-white underline underline-offset-4 decoration-accent' : 'text-white/70'
-                }`}
-              >
+              <Link key={href} href={href} className={linkClasses(pathname === href)}>
                 {t(key)}
               </Link>
             ))}
@@ -110,6 +163,7 @@ export function Navbar({ years }: { years: NavYear[] }) {
           <div className="flex items-center gap-3">
             <button
               onClick={() => changeLang(lang === 'en' ? 'fr' : 'en')}
+              aria-label={t('nav.switch_lang')}
               className="text-sm font-medium text-white/80 hover:text-white transition-colors border border-white/30 rounded-full px-3 py-1 cursor-pointer"
             >
               {lang === 'en' ? 'FR' : 'EN'}
@@ -117,9 +171,11 @@ export function Navbar({ years }: { years: NavYear[] }) {
             <button
               className="md:hidden p-2 text-white cursor-pointer"
               onClick={() => setOpen(!open)}
-              aria-label="Toggle menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={t('nav.toggle_menu')}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {open ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -131,7 +187,7 @@ export function Navbar({ years }: { years: NavYear[] }) {
         </div>
 
         {open && (
-          <nav className="md:hidden py-4 border-t border-white/20 flex flex-col gap-4 pb-5">
+          <nav id="mobile-menu" className="md:hidden py-4 border-t border-white/20 flex flex-col gap-4 pb-5">
             {NAV_LINKS_BEFORE_TEAM.map(({ href, key }) => (
               <Link
                 key={href}
