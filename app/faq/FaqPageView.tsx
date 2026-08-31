@@ -7,6 +7,7 @@ import { useTranslation } from '../../lib/useTranslation';
 import { PageHeader } from '../../components/PageHeader';
 import { loc } from '../../sanity/locale';
 import type { Faq, FaqCategory } from '../../sanity/types';
+import type { Image as SanityImage } from 'sanity';
 
 /** Section order on the page. A FAQ whose category isn't listed here — one
  *  added to the schema but not yet to this file — still shows, under the first
@@ -80,7 +81,13 @@ function FaqItem({ faq, open, onToggle }: { faq: Faq; open: boolean; onToggle: (
   );
 }
 
-export function FaqPageView({ faqs }: { faqs: Faq[] }) {
+export function FaqPageView({
+  faqs,
+  headerImage,
+}: {
+  faqs: Faq[];
+  headerImage?: SanityImage | null;
+}) {
   const { t } = useTranslation();
 
   const sections = CATEGORY_ORDER.map((category) => ({
@@ -94,7 +101,7 @@ export function FaqPageView({ faqs }: { faqs: Faq[] }) {
 
   return (
     <>
-      <PageHeader title={t('faq_page.title')} sub={t('faq_page.sub')} />
+      <PageHeader title={t('faq_page.title')} sub={t('faq_page.sub')} image={headerImage} />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {faqs.length === 0 ? (

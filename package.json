@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "migrate:sanity": "node scripts/migrate-to-sanity.mjs",
-    "seed:faqs": "node scripts/seed-faqs.mjs"
+    "seed:faqs": "node scripts/seed-faqs.mjs",
+    "seed:page-headers": "node scripts/seed-page-headers.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",

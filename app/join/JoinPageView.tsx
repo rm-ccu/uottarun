@@ -4,14 +4,26 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '../../lib/useTranslation';
 import { PageHeader } from '../../components/PageHeader';
 import type { SiteSettings } from '../../sanity/types';
+import type { Image as SanityImage } from 'sanity';
 
-export function JoinPageView({ settings }: { settings: SiteSettings | null }) {
+export function JoinPageView({
+  settings,
+  headerImage,
+}: {
+  settings: SiteSettings | null;
+  headerImage?: SanityImage | null;
+}) {
   const { t } = useTranslation();
   const socials = (settings?.socials || []).filter(({ url }) => url);
 
   return (
     <>
-      <PageHeader title={t('join_page.title')} sub={t('join_page.sub')} width="max-w-4xl" />
+      <PageHeader
+        title={t('join_page.title')}
+        sub={t('join_page.sub')}
+        image={headerImage}
+        width="max-w-4xl"
+      />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">

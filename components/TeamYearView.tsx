@@ -6,13 +6,16 @@ import { useTranslation } from '../lib/useTranslation';
 import { ExecCard, PacerCard } from './TeamCard';
 import { PageHeader } from './PageHeader';
 import type { TeamYear } from '../sanity/types';
+import type { Image as SanityImage } from 'sanity';
 
 export function TeamYearView({
   year,
   years,
+  headerImage,
 }: {
   year: TeamYear;
   years: { slug: string; label: string }[];
+  headerImage?: SanityImage | null;
 }) {
   const { t } = useTranslation();
   const isCurrent = year.isCurrent;
@@ -23,6 +26,7 @@ export function TeamYearView({
         eyebrow={year.label}
         title={t('team_page.title')}
         sub={t('team_page.sub')}
+        image={headerImage}
         width="max-w-6xl"
       />
 

@@ -1,4 +1,4 @@
-import { getFaqs } from '../../sanity/queries';
+import { getFaqs, getPageHeaders } from '../../sanity/queries';
 import { loc } from '../../sanity/locale';
 import { FaqPageView } from './FaqPageView';
 
@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default async function FaqPage() {
-  const faqs = await getFaqs();
+  const [faqs, headers] = await Promise.all([getFaqs(), getPageHeaders()]);
 
   // Google reads this to show the questions directly in search results.
   const jsonLd = {
@@ -30,7 +30,7 @@ export default async function FaqPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <FaqPageView faqs={faqs} />
+      <FaqPageView faqs={faqs} headerImage={headers?.faq} />
     </>
   );
 }

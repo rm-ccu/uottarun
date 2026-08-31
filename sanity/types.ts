@@ -27,6 +27,16 @@ export interface HomePage {
   stats: Stat[];
 }
 
+/** The photo behind each page title. Every field is optional — a page with no
+ *  image falls back to the plain surface band. */
+export interface PageHeaders {
+  team: Image | null;
+  events: Image | null;
+  faq: Image | null;
+  collabs: Image | null;
+  join: Image | null;
+}
+
 export interface Tag { _id: string; title: LocaleStr; color: string }
 
 export interface RunSeason {
@@ -107,6 +117,7 @@ export interface TeamYear {
   slug: string;
   isCurrent: boolean;
   pacerFormUrl?: string;
+  headerImage: Image | null;
   exec: RosterMember[];
   pacers: RosterMember[];
 }

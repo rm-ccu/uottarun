@@ -27,6 +27,15 @@ export const teamYear = defineType({
       description: 'The year shown by default. Only one should be on.',
       initialValue: false,
     }),
+    defineField({
+      name: 'headerImage',
+      title: 'Header photo for this year (optional)',
+      type: 'image',
+      options: { hotspot: true },
+      description:
+        'Only if this year deserves its own photo behind the title. Leave empty to use the ' +
+        'default set in Page Headers.',
+    }),
     defineField({ name: 'pacerFormUrl', title: 'Pacer application form URL', type: 'url' }),
     defineField({
       name: 'exec',
