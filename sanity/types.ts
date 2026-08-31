@@ -110,3 +110,14 @@ export interface TeamYear {
   exec: RosterMember[];
   pacers: RosterMember[];
 }
+
+export type FaqCategory = 'runs' | 'logistics' | 'safety' | 'involved';
+
+export interface Faq {
+  _id: string;
+  question: LocaleStr;
+  answer: LocaleStr;
+  category: FaqCategory;
+  linkLabel?: LocaleStr;
+  linkUrl?: string;
+}

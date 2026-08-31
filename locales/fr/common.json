@@ -5,6 +5,7 @@
     "events": "Événements",
     "team": "Équipe",
     "collabs": "Collaborations",
+    "faq": "FAQ",
     "join": "Rejoindre"
   },
   "hero": {
@@ -88,6 +89,20 @@
     "cta_title": "Devenez commanditaire",
     "cta_body": "Aidez-nous à développer la communauté de course d'Ottawa. Nous serions ravis de discuter des possibilités de partenariat avec vous.",
     "cta_button": "Contactez-nous"
+  },
+  "faq_page": {
+    "title": "FAQ",
+    "sub": "Tout ce qu'il faut savoir avant votre première course avec nous.",
+    "empty": "Les questions arrivent bientôt — revenez nous voir !",
+    "categories": {
+      "runs": "Les courses",
+      "logistics": "Quoi apporter et porter",
+      "safety": "Sécurité",
+      "involved": "S'impliquer"
+    },
+    "cta_title": "Une autre question ?",
+    "cta_body": "Écrivez-nous sur Instagram, ou venez simplement à une course — on ne mord pas.",
+    "cta_button": "Rejoindre le club"
   },
   "join_page": {
     "title": "Rejoindre uOttaCours",

@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: '/events', key: 'nav.events' },
   { href: '/team', key: 'nav.team' },
   { href: '/collabs', key: 'nav.collabs' },
+  { href: '/faq', key: 'nav.faq' },
   { href: '/join', key: 'nav.join' },
 ] as const;
 

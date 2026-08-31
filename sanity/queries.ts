@@ -2,7 +2,7 @@ import { groq } from 'next-sanity';
 import { client } from './client';
 import type {
   SiteSettings, HomePage, WeeklyRun, RunException, ClubEvent,
-  Award, CollabCategory, TeamYear,
+  Award, CollabCategory, TeamYear, Faq,
 } from './types';
 
 const TAG = groq`{ _id, title, color }`;
@@ -37,6 +37,10 @@ export const collabsQuery = groq`*[_type == "collabCategory"]|order(order asc){
   }
 }`;
 
+export const faqsQuery = groq`*[_type == "faq"]|order(order asc){
+  _id, question, answer, category, linkLabel, linkUrl
+}`;
+
 export const teamYearsQuery = groq`*[_type == "teamYear"]|order(label desc){
   _id, label, "slug": slug.current, isCurrent, pacerFormUrl,
   exec[]{ ..., "name": person->name, "photo": coalesce(photo, person->photo), "role": role->title },
@@ -53,3 +57,4 @@ export const getEvents = () => client.fetch<ClubEvent[]>(eventsQuery, { from: to
 export const getAwards = () => client.fetch<Award[]>(awardsQuery);
 export const getCollabs = () => client.fetch<CollabCategory[]>(collabsQuery);
 export const getTeamYears = () => client.fetch<TeamYear[]>(teamYearsQuery);
+export const getFaqs = () => client.fetch<Faq[]>(faqsQuery);
