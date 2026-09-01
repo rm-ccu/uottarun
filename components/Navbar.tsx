@@ -97,7 +97,7 @@ function TeamNavDropdown({ pathname, years }: { pathname: string; years: NavYear
   );
 }
 
-export function Navbar({ years, photoRoutes }: { years: NavYear[]; photoRoutes: string[] }) {
+export function Navbar({ years }: { years: NavYear[] }) {
   const { t, lang, changeLang } = useTranslation();
   const pathname = usePathname();
   // The menu remembers which route it was opened on, so any navigation — a tap
@@ -109,20 +109,21 @@ export function Navbar({ years, photoRoutes }: { years: NavYear[]; photoRoutes: 
     (next: boolean) => setMenu({ open: next, path: pathname }),
     [pathname]
   );
-  const [scrolled, setScrolled] = useState(false);
+  // Whether the page is still at the top. Starts true so the server-rendered
+  // markup is the at-top state — whether that actually shows as transparent is
+  // the stylesheet's call, based on the page having a photo header.
+  const [atTop, setAtTop] = useState(true);
 
-  // The bar may only go transparent where there is a photo behind it to sit on.
-  // Which routes those are is decided on the server from what is actually in the
-  // Studio, so clearing a page's image also puts its navbar back to solid.
-  const overHero = photoRoutes.includes(pathname);
-
+  // Observed rather than read from window.scrollY on mount: the observer reports
+  // the true state once layout settles, instead of whenever the effect happens
+  // to run relative to the browser restoring a scroll position.
   useEffect(() => {
-    if (!overHero) return;
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [overHero]);
+    const sentinel = document.querySelector('[data-top-sentinel]');
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(([entry]) => setAtTop(entry.isIntersecting));
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -132,21 +133,14 @@ export function Navbar({ years, photoRoutes }: { years: NavYear[]; photoRoutes: 
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [setOpen]);
 
-  // An open mobile menu always needs a solid ground, or its links land on top
-  // of the hero photo.
-  const solid = !overHero || scrolled || open;
-
   return (
     // The divider is an inset shadow rather than a border so the bar is exactly
     // h-16 tall. A 1px border made it 65px against the hero's -mt-16 pull, and
     // that leftover pixel showed as a cream line across the top of the page.
-    <header
-      className={`on-dark sticky top-0 z-50 transition-colors duration-300 ${
-        solid
-          ? 'bg-brand/95 backdrop-blur-md shadow-[inset_0_-1px_0_0_var(--color-brand-dark)]'
-          : 'bg-transparent'
-      }`}
-    >
+    //
+    // An open mobile menu counts as scrolled: its links always need a solid
+    // ground, or they land on top of the photo.
+    <header data-at-top={atTop && !open ? 'true' : 'false'} className="nav-bar on-dark sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5 rounded-full">

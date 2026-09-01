@@ -78,7 +78,7 @@ export function PageHeader({
   // band above does not do this — a transparent bar over cream would leave the
   // nav links white on white.
   return (
-    <section className="relative -mt-16 overflow-hidden">
+    <section data-photo-header className="relative -mt-16 overflow-hidden">
       <Image src={bg} alt="" fill priority className="object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
