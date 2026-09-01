@@ -5,7 +5,7 @@ import { useTranslation } from '../lib/useTranslation';
 import { Carousel } from './Carousel';
 import { CARD, CARD_HOVER } from '../lib/ui';
 import { loc } from '../sanity/locale';
-import { urlFor } from '../sanity/image';
+import { urlForLogo } from '../sanity/image';
 import type { Collab } from '../sanity/types';
 
 export type { Collab };
@@ -20,8 +20,15 @@ function CollabCard({ collab, emphasized }: { collab: Collab; emphasized: boolea
   const content = (
     <>
       {collab.logo && (
-        <div className="relative w-16 h-16 mx-auto mb-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 overflow-hidden">
-          <Image src={urlFor(collab.logo).width(128).height(128).url()} alt="" fill className="object-contain p-2" />
+        <div className="relative w-full h-20 mb-5 rounded-xl bg-white ring-1 ring-black/5 overflow-hidden">
+          <Image
+            src={urlForLogo(collab.logo, 480)}
+            alt=""
+            fill
+            sizes="224px"
+            quality={90}
+            className="object-contain p-3"
+          />
         </div>
       )}
       <p className="font-semibold text-gray-900 text-xl">{displayName}</p>

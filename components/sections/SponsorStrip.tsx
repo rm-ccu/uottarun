@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useTranslation } from '../../lib/useTranslation';
 import { loc } from '../../sanity/locale';
-import { urlFor } from '../../sanity/image';
+import { urlForLogo } from '../../sanity/image';
 import type { Collab, CollabCategory } from '../../sanity/types';
 
 /**
@@ -16,9 +16,11 @@ function SponsorLogo({ sponsor, name }: { sponsor: Collab; name: string }) {
   const inner = sponsor.logo ? (
     <span className="relative block w-32 h-16 sm:w-36 sm:h-20">
       <Image
-        src={urlFor(sponsor.logo).width(320).fit('max').url()}
+        src={urlForLogo(sponsor.logo, 480)}
         alt={name}
         fill
+        sizes="144px"
+        quality={90}
         className="object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
       />
     </span>
