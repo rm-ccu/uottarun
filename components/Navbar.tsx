@@ -97,7 +97,7 @@ function TeamNavDropdown({ pathname, years }: { pathname: string; years: NavYear
   );
 }
 
-export function Navbar({ years }: { years: NavYear[] }) {
+export function Navbar({ years, photoRoutes }: { years: NavYear[]; photoRoutes: string[] }) {
   const { t, lang, changeLang } = useTranslation();
   const pathname = usePathname();
   // The menu remembers which route it was opened on, so any navigation — a tap
@@ -111,8 +111,10 @@ export function Navbar({ years }: { years: NavYear[] }) {
   );
   const [scrolled, setScrolled] = useState(false);
 
-  // Only the home page has a full-bleed photo behind the bar to sit on.
-  const overHero = pathname === '/';
+  // The bar may only go transparent where there is a photo behind it to sit on.
+  // Which routes those are is decided on the server from what is actually in the
+  // Studio, so clearing a page's image also puts its navbar back to solid.
+  const overHero = photoRoutes.includes(pathname);
 
   useEffect(() => {
     if (!overHero) return;
