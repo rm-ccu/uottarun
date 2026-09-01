@@ -19,7 +19,7 @@ export function HeroSection({ home }: { home: HomePage | null }) {
   return (
     // Pulled up under the sticky navbar so the photo runs edge to edge behind
     // it; the bar stays transparent until the first scroll.
-    <section className="relative -mt-16 flex items-center min-h-[92vh] overflow-hidden">
+    <section data-photo-header className="relative -mt-16 flex items-center min-h-[92vh] overflow-hidden">
       {bg && <Image src={bg} alt="" fill className="object-cover object-center" priority />}
 
       {/* Two directional scrims rather than one flat wash — the photo keeps its
