@@ -73,12 +73,18 @@ export function PageHeader({
     );
   }
 
+  // Pulled up under the sticky navbar so the photo runs edge to edge behind it,
+  // with the extra top padding putting the text back where it was. The plain
+  // band above does not do this — a transparent bar over cream would leave the
+  // nav links white on white.
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative -mt-16 overflow-hidden">
       <Image src={bg} alt="" fill priority className="object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
-      <div className={`relative z-10 ${width} mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32`}>{body}</div>
+      <div className={`relative z-10 ${width} mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 sm:pt-48 sm:pb-32`}>
+        {body}
+      </div>
     </section>
   );
 }
